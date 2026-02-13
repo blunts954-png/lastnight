@@ -1,0 +1,11 @@
+<svg width="800" height="1066" viewBox="0 0 800 1066" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="1066" fill="#0a0a0a"/>
+  <rect x="200" y="200" width="400" height="500" rx="8" fill="#171717" stroke="#262626" stroke-width="2"/>
+  <rect x="280" y="280" width="240" height="160" rx="4" fill="#262626"/>
+  <circle cx="400" cy="360" r="40" fill="#404040"/>
+  <rect x="300" y="480" width="200" height="20" rx="4" fill="#262626"/>
+  <rect x="320" y="520" width="160" height="12" rx="2" fill="#1a1a1a"/>
+  <text x="400" y="800" font-family="monospace" font-size="48" font-weight="bold" fill="#00FF41" text-anchor="middle">AFTERMATH</text>
+  <text x="400" y="850" font-family="monospace" font-size="24" fill="#404040" text-anchor="middle">HOODIE</text>
+  <text x="400" y="920" font-family="monospace" font-size="16" fill="#262626" text-anchor="middle">420gsm French Terry</text>
+</svg>

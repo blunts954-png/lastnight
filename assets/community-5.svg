@@ -1,0 +1,10 @@
+<svg width="600" height="600" viewBox="0 0 600 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="600" height="600" fill="#090909"/>
+  <rect x="60" y="100" width="480" height="400" fill="#0e0e0e"/>
+  <ellipse cx="300" cy="260" rx="75" ry="95" fill="#191919"/>
+  <rect x="225" y="340" width="150" height="140" rx="8" fill="#191919"/>
+  <!-- Light flare -->
+  <ellipse cx="450" cy="200" rx="40" ry="30" fill="#00FF41" opacity="0.05"/>
+  <text x="30" y="40" font-family="monospace" font-size="14" fill="#FF0000">REC ●</text>
+  <text x="30" y="580" font-family="monospace" font-size="12" fill="#333">CAM_05 // 01:56:33</text>
+</svg>

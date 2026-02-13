@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="LAST NIGHT - For the ones who never left. Limited streetwear drops for the aftermath.">
+    <meta name="theme-color" content="#000000">
+    
+    <!-- Preload Critical Assets -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <title>LAST NIGHT | FOR THE ONES WHO NEVER LEFT</title>
+    
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+</head>
+<body>
+    <!-- Loader -->
+    <div class="loader" id="loader">
+        <div class="loader-content">
+            <span class="loader-text">LAST NIGHT</span>
+            <div class="loader-bar"></div>
+        </div>
+    </div>
+
+    <!-- Cursor -->
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-follower" id="cursor-follower"></div>
+
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">
+                <span class="logo-text">LAST NIGHT</span>
+                <span class="logo-zzz">ZZZ</span>
+            </a>
+            <div class="nav-links">
+                <a href="#drops" class="nav-link">DROPS</a>
+                <a href="#community" class="nav-link">COMMUNITY</a>
+                <a href="#blacklist" class="nav-link nav-link-accent">JOIN BLACKLIST</a>
+            </div>
+            <button class="nav-menu-btn" id="nav-menu-btn" aria-label="Menu">
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobile-menu">
+        <div class="mobile-menu-content">
+            <a href="#drops" class="mobile-link">DROPS</a>
+            <a href="#community" class="mobile-link">COMMUNITY</a>
+            <a href="#blacklist" class="mobile-link">JOIN BLACKLIST</a>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-video-container">
+            <!-- HERO VIDEO: 10-15 sec loop, shaky cam aesthetic -->
+            <!-- Replace the src with your actual video file -->
+            <video class="hero-video" autoplay muted loop playsinline poster="https://scontent-lax3-2.cdninstagram.com/v/t51.2885-15/587807426_2681014618918950_5352559709707314246_n.jpg?stp=dst-jpg_e35_p1080x1080&_nc_ht=scontent-lax3-2.cdninstagram.com">
+                <source src="assets/hero-video.mp4" type="video/mp4">
+                <!-- Fallback: Instagram Reel/Video URL can be used here -->
+            </video>
+            <div class="hero-video-overlay"></div>
+            <div class="hero-grain"></div>
+        </div>
+        
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span class="badge-dot"></span>
+                <span>LIMITED RELEASE 004</span>
+            </div>
+            
+            <h1 class="hero-title">
+                <span class="title-line">FOR THE ONES</span>
+                <span class="title-line title-line-accent">WHO NEVER LEFT.</span>
+            </h1>
+            
+            <p class="hero-subtitle">Once the sun rises, the shop closes.</p>
+            
+            <!-- Countdown Timer -->
+            <div class="countdown" id="countdown">
+                <div class="countdown-label">DROP CLOSES IN</div>
+                <div class="countdown-timer">
+                    <div class="countdown-block">
+                        <span class="countdown-number" id="hours">00</span>
+                        <span class="countdown-unit">HRS</span>
+                    </div>
+                    <span class="countdown-separator">:</span>
+                    <div class="countdown-block">
+                        <span class="countdown-number" id="minutes">00</span>
+                        <span class="countdown-unit">MIN</span>
+                    </div>
+                    <span class="countdown-separator">:</span>
+                    <div class="countdown-block">
+                        <span class="countdown-number" id="seconds">00</span>
+                        <span class="countdown-unit">SEC</span>
+                    </div>
+                </div>
+            </div>
+            
+            <a href="#drops" class="hero-cta">
+                <span>ENTER THE DROP</span>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 5v14M19 12l-7 7-7-7"/>
+                </svg>
+            </a>
+        </div>
+        
+        <div class="hero-scroll-indicator">
+            <span>SCROLL</span>
+            <div class="scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- Marquee -->
+    <div class="marquee">
+        <div class="marquee-content">
+            <span>LAST NIGHT</span>
+            <span class="marquee-dot">●</span>
+            <span>LIMITED DROP 004</span>
+            <span class="marquee-dot">●</span>
+            <span>THE CONTROLLED AFTERMATH</span>
+            <span class="marquee-dot">●</span>
+            <span>ZZZ</span>
+            <span class="marquee-dot">●</span>
+            <span>LAST NIGHT</span>
+            <span class="marquee-dot">●</span>
+            <span>LIMITED DROP 004</span>
+            <span class="marquee-dot">●</span>
+            <span>THE CONTROLLED AFTERMATH</span>
+            <span class="marquee-dot">●</span>
+            <span>ZZZ</span>
+            <span class="marquee-dot">●</span>
+        </div>
+    </div>
+
+    <!-- Products Section -->
+    <section class="products" id="drops">
+        <div class="products-header">
+            <div class="section-label">
+                <span class="label-number">001</span>
+                <span class="label-text">THE DROP</span>
+            </div>
+            <h2 class="products-title">EXCLUSIVE RELEASE</h2>
+            <p class="products-description">Three pieces. One night. No restocks.</p>
+        </div>
+
+        <div class="products-grid">
+            <!-- Product 1 - Flagship -->
+            <div class="product-card product-card-featured" data-product="1">
+                <div class="product-badge">FLAGSHIP</div>
+                <div class="product-image-container">
+                    <div class="product-image" style="background-image: url('https://scontent-lax3-2.cdninstagram.com/v/t51.2885-15/624952561_17985665945942183_4359954073133937075_n.jpg?stp=dst-jpg_e35_p1080x1080&_nc_ht=scontent-lax3-2.cdninstagram.com');">
+                        <div class="product-image-overlay"></div>
+                    </div>
+                    <div class="product-quick-view">
+                        <span>QUICK VIEW</span>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <div class="product-meta">
+                        <span class="product-number">#001</span>
+                        <span class="product-stock">
+                            <span class="stock-dot"></span>
+                            47 LEFT
+                        </span>
+                    </div>
+                    <h3 class="product-name">AFTERMATH HOODIE</h3>
+                    <p class="product-tagline">Heavyweight 420gsm French Terry</p>
+                    <div class="product-price-row">
+                        <span class="product-price">$185</span>
+                        <button class="product-btn">ADD TO CART</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="product-card" data-product="2">
+                <div class="product-image-container">
+                    <div class="product-image" style="background-image: url('https://scontent-lax3-1.cdninstagram.com/v/t51.2885-15/631475678_778235714747662_1139167440278001592_n.jpg?stp=dst-jpg_e35_p1080x1080&_nc_ht=scontent-lax3-1.cdninstagram.com');">
+                        <div class="product-image-overlay"></div>
+                    </div>
+                    <div class="product-quick-view">
+                        <span>QUICK VIEW</span>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <div class="product-meta">
+                        <span class="product-number">#002</span>
+                        <span class="product-stock">
+                            <span class="stock-dot stock-dot-low"></span>
+                            12 LEFT
+                        </span>
+                    </div>
+                    <h3 class="product-name">ZZZ CARGO PANTS</h3>
+                    <p class="product-tagline">Ripstop Technical Fabric</p>
+                    <div class="product-price-row">
+                        <span class="product-price">$165</span>
+                        <button class="product-btn">ADD TO CART</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="product-card" data-product="3">
+                <div class="product-image-container">
+                    <div class="product-image" style="background-image: url('https://scontent-lax3-2.cdninstagram.com/v/t51.2885-15/620521851_17985058652942183_4243724319673464720_n.jpg?stp=dst-jpg_e35_p1080x1080&_nc_ht=scontent-lax3-2.cdninstagram.com');">
+                        <div class="product-image-overlay"></div>
+                    </div>
+                    <div class="product-quick-view">
+                        <span>QUICK VIEW</span>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <div class="product-meta">
+                        <span class="product-number">#003</span>
+                        <span class="product-stock">
+                            <span class="stock-dot"></span>
+                            89 LEFT
+                        </span>
+                    </div>
+                    <h3 class="product-name">DAWN TEE</h3>
+                    <p class="product-tagline">Oversized Boxy Cut</p>
+                    <div class="product-price-row">
+                        <span class="product-price">$75</span>
+                        <button class="product-btn">ADD TO CART</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mystery Box -->
+        <div class="mystery-box">
+            <div class="mystery-box-grain"></div>
+            <div class="mystery-box-content">
+                <div class="mystery-badge">HIGH VALUE</div>
+                <div class="mystery-info">
+                    <h3 class="mystery-title">THE UNKNOWN BUNDLE</h3>
+                    <p class="mystery-description">
+                        3 unreleased pieces + exclusive accessories. 
+                        Contents revealed upon delivery. No refunds. No regrets.
+                    </p>
+                    <ul class="mystery-includes">
+                        <li>1x Unreleased Hoodie</li>
+                        <li>1x Unreleased Tee</li>
+                        <li>1x Unreleased Accessory</li>
+                        <li>Exclusive packaging</li>
+                    </ul>
+                </div>
+                <div class="mystery-action">
+                    <div class="mystery-price">
+                        <span class="mystery-price-label">BUNDLE PRICE</span>
+                        <span class="mystery-price-value">$285</span>
+                        <span class="mystery-price-saved">Save $140</span>
+                    </div>
+                    <button class="mystery-btn">
+                        <span>CLAIM BUNDLE</span>
+                        <span class="mystery-btn-stock">23 left</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Section -->
+    <section class="community" id="community">
+        <div class="community-header">
+            <div class="section-label">
+                <span class="label-number">002</span>
+                <span class="label-text">THE COMMUNITY</span>
+            </div>
+            <h2 class="community-title">CAUGHT IN THE WILD</h2>
+            <p class="community-description">Tagged by the underground. No influencers. Just insomniacs.</p>
+        </div>
+
+        <div class="community-grid">
+            <div class="community-item community-item-tall">
+                <div class="community-image" style="background-image: url('https://scontent-lax3-2.cdninstagram.com/v/t51.2885-15/627634121_1567497644520035_2563627278548789564_n.jpg?stp=dst-jpg_e35_p1080x1080&_nc_ht=scontent-lax3-2.cdninstagram.com');"></div>
+                <div class="community-overlay">
+                    <span class="community-tag">@_nxghtshift</span>
+                    <span class="community-location">TOKYO, 3:47 AM</span>
+                </div>
+                <div class="community-cctv">REC ●</div>
+            </div>
+            <div class="community-item">
+                <div class="community-image" style="background-image: url('https://scontent-lax3-2.cdninstagram.com/v/t51.2885-15/621258600_17985094436942183_3828458434091796990_n.jpg?stp=dst-jpg_e35_p1080x1080&_nc_ht=scontent-lax3-2.cdninstagram.com');"></div>
+                <div class="community-overlay">
+                    <span class="community-tag">@voidwalker.exe</span>
+                    <span class="community-location">BERLIN, 4:12 AM</span>
+                </div>
+                <div class="community-cctv">REC ●</div>
+            </div>
+            <div class="community-item">
+                <div class="community-image" style="background-image: url('https://scontent-lax3-2.cdninstagram.com/v/t51.2885-15/587829698_17982271220942183_3420757621930416242_n.jpg?stp=dst-jpg_e35_p1080x1080&_nc_ht=scontent-lax3-2.cdninstagram.com');"></div>
+                <div class="community-overlay">
+                    <span class="community-tag">@sleepless.404</span>
+                    <span class="community-location">NYC, 2:33 AM</span>
+                </div>
+                <div class="community-cctv">REC ●</div>
+            </div>
+            <div class="community-item community-item-wide">
+                <div class="community-image" style="background-image: url('https://scontent-lax3-2.cdninstagram.com/v/t51.2885-15/588730220_925605419791254_5855943324172736676_n.jpg?stp=dst-jpg_e35_p1080x1080&_nc_ht=scontent-lax3-2.cdninstagram.com');"></div>
+                <div class="community-overlay">
+                    <span class="community-tag">@afterhours.club</span>
+                    <span class="community-location">LONDON, 5:08 AM</span>
+                </div>
+                <div class="community-cctv">REC ●</div>
+            </div>
+            <div class="community-item">
+                <div class="community-image" style="background-image: url('https://scontent-lax3-2.cdninstagram.com/v/t51.2885-15/587284012_826483133619978_10360667013338369_n.jpg?stp=dst-jpg_e35_p1080x1080&_nc_ht=scontent-lax3-2.cdninstagram.com');"></div>
+                <div class="community-overlay">
+                    <span class="community-tag">@the.crash</span>
+                    <span class="community-location">LA, 1:56 AM</span>
+                </div>
+                <div class="community-cctv">REC ●</div>
+            </div>
+            <div class="community-item">
+                <div class="community-image" style="background-image: url('https://scontent-lax3-2.cdninstagram.com/v/t51.2885-15/590314586_17980395947942183_4364496347723700883_n.jpg?stp=dst-jpg_e35_p1080x1080&_nc_ht=scontent-lax3-2.cdninstagram.com');"></div>
+                <div class="community-overlay">
+                    <span class="community-tag">@static.dreamer</span>
+                    <span class="community-location">SEOUL, 4:44 AM</span>
+                </div>
+                <div class="community-cctv">REC ●</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="stats-container">
+            <div class="stat-item">
+                <span class="stat-number" data-target="47">0</span>
+                <span class="stat-label">DROPS SOLD OUT</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+                <span class="stat-number" data-target="12847">0</span>
+                <span class="stat-label">BLACKLIST MEMBERS</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+                <span class="stat-number" data-target="23">0</span>
+                <span class="stat-label">COUNTRIES</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+                <span class="stat-prefix">&lt;</span>
+                <span class="stat-number" data-target="3">0</span>
+                <span class="stat-suffix">min</span>
+                <span class="stat-label">AVG SELLOUT TIME</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blacklist Section -->
+    <section class="blacklist" id="blacklist">
+        <div class="blacklist-container">
+            <div class="blacklist-content">
+                <div class="section-label">
+                    <span class="label-number">003</span>
+                    <span class="label-text">EARLY ACCESS</span>
+                </div>
+                <h2 class="blacklist-title">JOIN THE BLACKLIST</h2>
+                <p class="blacklist-description">
+                    Get early access codes via SMS 15 minutes before public drops. 
+                    No spam. No selling your data. Just first dibs.
+                </p>
+                
+                <form class="blacklist-form" id="blacklist-form" data-sms-service="twilio">
+                    <div class="form-group">
+                        <input type="tel" id="phone" name="phone" placeholder="+1 (555) 000-0000" required pattern="[\d\s\-\(\)\+]{10,}">
+                        <label for="phone">PHONE NUMBER</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" placeholder="your@email.com" required>
+                        <label for="email">EMAIL (BACKUP)</label>
+                    </div>
+                    <!-- SMS Service Configuration (hidden) -->
+                    <input type="hidden" name="list_id" value="lastnight_blacklist">
+                    <input type="hidden" name="source" value="website">
+                    <button type="submit" class="blacklist-btn">
+                        <span class="btn-text">GET ON THE LIST</span>
+                        <span class="btn-loading">
+                            <svg class="spinner" viewBox="0 0 24 24">
+                                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="3" fill="none" stroke-dasharray="60" stroke-dashoffset="20"/>
+                            </svg>
+                        </span>
+                    </button>
+                </form>
+                
+                <div class="blacklist-success" id="blacklist-success">
+                    <div class="success-icon">✓</div>
+                    <h3>YOU'RE IN.</h3>
+                    <p>Watch your phone. The next drop is closer than you think.</p>
+                </div>
+                
+                <p class="blacklist-note">
+                    <span class="note-icon">🔒</span>
+                    Your info stays with us. We don't sell data. Ever.
+                </p>
+            </div>
+            
+            <div class="blacklist-visual">
+                <div class="blacklist-card">
+                    <div class="card-header">
+                        <span class="card-logo">LN</span>
+                        <span class="card-type">BLACKLIST</span>
+                    </div>
+                    <div class="card-number">
+                        <span>●●●●</span>
+                        <span>●●●●</span>
+                        <span>●●●●</span>
+                        <span id="card-last-four">0000</span>
+                    </div>
+                    <div class="card-footer">
+                        <div class="card-member">
+                            <span class="card-label">MEMBER SINCE</span>
+                            <span class="card-value" id="card-date">--/--</span>
+                        </div>
+                        <div class="card-status">
+                            <span class="status-dot"></span>
+                            <span>ACTIVE</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <span class="footer-logo">LAST NIGHT</span>
+                    <p class="footer-tagline">The Controlled Aftermath</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>SHOP</h4>
+                        <a href="#drops">Current Drop</a>
+                        <a href="#">Archive</a>
+                        <a href="#">Size Guide</a>
+                    </div>
+                    <div class="footer-column">
+                        <h4>INFO</h4>
+                        <a href="#">About</a>
+                        <a href="#">Shipping</a>
+                        <a href="#">Returns</a>
+                        <a href="#">Contact</a>
+                    </div>
+                    <div class="footer-column">
+                        <h4>LEGAL</h4>
+                        <a href="#">Terms</a>
+                        <a href="#">Privacy</a>
+                    </div>
+                </div>
+                <div class="footer-social">
+                    <a href="#" class="social-link" aria-label="Instagram">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="2" y="2" width="20" height="20" rx="5"/>
+                            <circle cx="12" cy="12" r="4"/>
+                            <circle cx="18" cy="6" r="1.5" fill="currentColor"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="social-link" aria-label="Twitter">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M4 4l11.733 16h4.267l-11.733-16zM4 20l6.4-8M20 4l-6.4 8"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="social-link" aria-label="TikTok">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="footer-copyright">© 2024 LAST NIGHT. ALL RIGHTS RESERVED.</p>
+                <p class="footer-time">
+                    <span class="time-dot"></span>
+                    <span id="current-time">00:00:00</span> LOCAL TIME
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Quick View Modal -->
+    <div class="modal" id="quick-view-modal">
+        <div class="modal-backdrop"></div>
+        <div class="modal-content">
+            <button class="modal-close" aria-label="Close">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 6L6 18M6 6l12 12"/>
+                </svg>
+            </button>
+            <div class="modal-body">
+                <div class="modal-gallery">
+                    <div class="modal-image" id="modal-image"></div>
+                </div>
+                <div class="modal-info">
+                    <span class="modal-badge" id="modal-badge"></span>
+                    <h2 class="modal-title" id="modal-title"></h2>
+                    <p class="modal-description" id="modal-description"></p>
+                    <div class="modal-price" id="modal-price"></div>
+                    
+                    <div class="modal-options">
+                        <div class="option-group">
+                            <label>SIZE</label>
+                            <div class="size-options">
+                                <button class="size-btn">S</button>
+                                <button class="size-btn active">M</button>
+                                <button class="size-btn">L</button>
+                                <button class="size-btn">XL</button>
+                                <button class="size-btn">XXL</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button class="modal-add-btn">
+                        ADD TO CART — <span id="modal-btn-price"></span>
+                    </button>
+                    
+                    <div class="modal-details">
+                        <div class="detail-item">
+                            <span class="detail-icon">📦</span>
+                            <span>Free shipping on orders over $150</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-icon">🔄</span>
+                            <span>14-day returns on unworn items</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar" id="cart-sidebar">
+        <div class="cart-header">
+            <h3>YOUR CART</h3>
+            <button class="cart-close" id="cart-close">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 6L6 18M6 6l12 12"/>
+                </svg>
+            </button>
+        </div>
+        <div class="cart-items" id="cart-items">
+            <div class="cart-empty">
+                <span class="cart-empty-icon">🌙</span>
+                <p>Your cart is empty</p>
+                <span>The night is young...</span>
+            </div>
+        </div>
+        <div class="cart-footer" id="cart-footer" style="display: none;">
+            <div class="cart-total">
+                <span>TOTAL</span>
+                <span id="cart-total-price">$0</span>
+            </div>
+            <button class="checkout-btn">CHECKOUT</button>
+            <p class="cart-note">Shipping calculated at checkout</p>
+        </div>
+    </div>
+    <div class="cart-overlay" id="cart-overlay"></div>
+
+    <!-- Cart Toggle Button -->
+    <button class="cart-toggle" id="cart-toggle">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M6 6h15l-1.5 9h-12z"/>
+            <circle cx="9" cy="20" r="1"/>
+            <circle cx="18" cy="20" r="1"/>
+        </svg>
+        <span class="cart-count" id="cart-count">0</span>
+    </button>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <span class="toast-icon">✓</span>
+        <span class="toast-message" id="toast-message">Added to cart</span>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
