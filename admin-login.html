@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LAST NIGHT | Admin Login</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="admin-styles.css">
+</head>
+<body class="admin-body">
+    <div class="admin-login-container">
+        <div class="admin-login-card">
+            <div class="admin-login-header">
+                <span class="admin-logo">LAST NIGHT</span>
+                <span class="admin-logo-sub">ADMIN PORTAL</span>
+            </div>
+            
+            <form class="admin-login-form" id="admin-login-form">
+                <div class="admin-form-group">
+                    <label for="admin-email">EMAIL</label>
+                    <input type="email" id="admin-email" name="email" required placeholder="admin@lastnight.com">
+                </div>
+                
+                <div class="admin-form-group">
+                    <label for="admin-password">PASSWORD</label>
+                    <input type="password" id="admin-password" name="password" required placeholder="••••••••">
+                </div>
+                
+                <div class="admin-error" id="admin-error" style="display: none;">
+                    <span class="error-icon">!</span>
+                    <span class="error-message">Invalid credentials</span>
+                </div>
+                
+                <button type="submit" class="admin-login-btn">
+                    <span class="btn-text">ACCESS DASHBOARD</span>
+                    <span class="btn-loading">
+                        <svg class="spinner" viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="3" fill="none" stroke-dasharray="60" stroke-dashoffset="20"/>
+                        </svg>
+                    </span>
+                </button>
+            </form>
+            
+            <a href="index.html" class="admin-back-link">← Back to Website</a>
+        </div>
+        
+        <div class="admin-login-visual">
+            <div class="visual-grid">
+                <div class="visual-stat">
+                    <span class="stat-value">247</span>
+                    <span class="stat-label">TICKETS SOLD</span>
+                </div>
+                <div class="visual-stat">
+                    <span class="stat-value">$18.5K</span>
+                    <span class="stat-label">REVENUE</span>
+                </div>
+                <div class="visual-stat">
+                    <span class="stat-value">89</span>
+                    <span class="stat-label">CHECKED IN</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="admin-auth.js"></script>
+</body>
+</html>

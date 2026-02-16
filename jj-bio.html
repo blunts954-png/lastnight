@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="JJ - The visionary behind LAST NIGHT. Curator of experiences, architect of unforgettable nights in Bakersfield and the Central Valley.">
+    <meta name="theme-color" content="#000000">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <title>JJ | THE ARCHITECT | LAST NIGHT</title>
+    
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <style>
+        /* Bio Page Specific Styles */
+        .bio-hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: var(--black);
+            overflow: hidden;
+        }
+
+        .bio-hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at 30% 50%, rgba(0, 255, 65, 0.08) 0%, transparent 60%),
+                        radial-gradient(ellipse at 70% 80%, rgba(0, 255, 65, 0.05) 0%, transparent 40%);
+        }
+
+        .bio-hero-grain {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+            opacity: 0.03;
+            pointer-events: none;
+        }
+
+        .bio-hero-content {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 120px var(--space-xl) var(--space-4xl);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-4xl);
+            align-items: center;
+        }
+
+        .bio-image-container {
+            position: relative;
+        }
+
+        .bio-image-frame {
+            position: relative;
+            aspect-ratio: 3/4;
+            overflow: hidden;
+        }
+
+        .bio-image-frame::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(135deg, var(--accent), transparent 50%, var(--accent));
+            z-index: -1;
+        }
+
+        .bio-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(20%) contrast(1.1);
+            transition: all 0.6s ease;
+        }
+
+        .bio-image:hover {
+            filter: grayscale(0%) contrast(1.05);
+            transform: scale(1.02);
+        }
+
+        .bio-image-label {
+            position: absolute;
+            bottom: var(--space-lg);
+            left: var(--space-lg);
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            letter-spacing: 0.3em;
+            color: var(--accent);
+            background: rgba(0, 0, 0, 0.8);
+            padding: var(--space-sm) var(--space-md);
+            backdrop-filter: blur(10px);
+        }
+
+        .bio-social-strip {
+            position: absolute;
+            right: calc(-1 * var(--space-xl));
+            top: 50%;
+            transform: translateY(-50%) rotate(90deg);
+            display: flex;
+            gap: var(--space-xl);
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            letter-spacing: 0.2em;
+            transform-origin: center;
+        }
+
+        .bio-social-strip a {
+            color: var(--gray-500);
+            transition: color 0.3s ease;
+        }
+
+        .bio-social-strip a:hover {
+            color: var(--accent);
+        }
+
+        .bio-text-container {
+            padding: var(--space-2xl) 0;
+        }
+
+        .bio-label {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-sm);
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            letter-spacing: 0.3em;
+            color: var(--accent);
+            margin-bottom: var(--space-lg);
+        }
+
+        .bio-label::before {
+            content: '';
+            width: 40px;
+            height: 1px;
+            background: var(--accent);
+        }
+
+        .bio-name {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 400;
+            line-height: 1;
+            margin-bottom: var(--space-md);
+            letter-spacing: -0.02em;
+        }
+
+        .bio-name span {
+            display: block;
+            font-style: italic;
+            color: var(--accent);
+        }
+
+        .bio-title {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            letter-spacing: 0.25em;
+            color: var(--gray-400);
+            margin-bottom: var(--space-2xl);
+            text-transform: uppercase;
+        }
+
+        .bio-intro {
+            font-size: 1.25rem;
+            line-height: 1.8;
+            color: var(--gray-300);
+            margin-bottom: var(--space-xl);
+            border-left: 2px solid var(--accent);
+            padding-left: var(--space-lg);
+        }
+
+        /* Story Section */
+        .bio-story {
+            padding: var(--space-4xl) var(--space-xl);
+            background: var(--gray-950);
+        }
+
+        .bio-story-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .bio-section-label {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            letter-spacing: 0.3em;
+            color: var(--accent);
+            margin-bottom: var(--space-2xl);
+        }
+
+        .bio-section-label::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--gray-800);
+        }
+
+        .bio-story-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-4xl);
+        }
+
+        .bio-story-chapter {
+            position: relative;
+        }
+
+        .bio-chapter-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 6rem;
+            font-weight: 400;
+            color: var(--gray-900);
+            line-height: 1;
+            position: absolute;
+            top: -20px;
+            left: -10px;
+            z-index: 0;
+        }
+
+        .bio-chapter-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .bio-chapter-title {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            letter-spacing: 0.2em;
+            color: var(--white);
+            margin-bottom: var(--space-lg);
+            text-transform: uppercase;
+        }
+
+        .bio-chapter-text {
+            color: var(--gray-400);
+            line-height: 1.9;
+            font-size: 0.95rem;
+        }
+
+        /* Quote Section */
+        .bio-quote-section {
+            padding: var(--space-4xl) var(--space-xl);
+            background: var(--black);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .bio-quote-bg {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-family: 'Playfair Display', serif;
+            font-size: 40vw;
+            color: var(--gray-950);
+            opacity: 0.5;
+            pointer-events: none;
+            line-height: 1;
+        }
+
+        .bio-quote-container {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .bio-quote {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            font-style: italic;
+            line-height: 1.6;
+            color: var(--white);
+            margin-bottom: var(--space-xl);
+        }
+
+        .bio-quote-author {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            letter-spacing: 0.3em;
+            color: var(--accent);
+        }
+
+        /* Brands Section */
+        .bio-brands {
+            padding: var(--space-4xl) var(--space-xl);
+            background: var(--gray-950);
+        }
+
+        .bio-brands-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .bio-brands-header {
+            text-align: center;
+            margin-bottom: var(--space-3xl);
+        }
+
+        .bio-brands-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: var(--space-md);
+        }
+
+        .bio-brands-subtitle {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            letter-spacing: 0.2em;
+            color: var(--gray-500);
+        }
+
+        .bio-brands-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-xl);
+        }
+
+        .bio-brand-card {
+            background: var(--black);
+            border: 1px solid var(--gray-800);
+            padding: var(--space-2xl);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .bio-brand-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-4px);
+        }
+
+        .bio-brand-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--accent);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .bio-brand-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .bio-brand-handle {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            letter-spacing: 0.15em;
+            color: var(--accent);
+            margin-bottom: var(--space-md);
+        }
+
+        .bio-brand-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.75rem;
+            margin-bottom: var(--space-md);
+        }
+
+        .bio-brand-desc {
+            color: var(--gray-400);
+            font-size: 0.9rem;
+            line-height: 1.7;
+            margin-bottom: var(--space-lg);
+        }
+
+        .bio-brand-link {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-sm);
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            letter-spacing: 0.15em;
+            color: var(--white);
+            transition: color 0.3s ease;
+        }
+
+        .bio-brand-link:hover {
+            color: var(--accent);
+        }
+
+        .bio-brand-link svg {
+            transition: transform 0.3s ease;
+        }
+
+        .bio-brand-link:hover svg {
+            transform: translateX(4px);
+        }
+
+        /* Legacy Section */
+        .bio-legacy {
+            padding: var(--space-4xl) var(--space-xl);
+            background: var(--black);
+        }
+
+        .bio-legacy-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: var(--space-4xl);
+            align-items: center;
+        }
+
+        .bio-legacy-image {
+            position: relative;
+        }
+
+        .bio-legacy-img {
+            width: 100%;
+            aspect-ratio: 4/3;
+            object-fit: cover;
+            filter: sepia(30%) contrast(1.1);
+        }
+
+        .bio-legacy-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.9));
+            padding: var(--space-xl) var(--space-lg) var(--space-lg);
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            letter-spacing: 0.15em;
+            color: var(--gray-400);
+        }
+
+        .bio-legacy-content h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.75rem, 4vw, 2.5rem);
+            margin-bottom: var(--space-lg);
+        }
+
+        .bio-legacy-content p {
+            color: var(--gray-400);
+            line-height: 1.9;
+            margin-bottom: var(--space-lg);
+        }
+
+        .bio-legacy-stat {
+            display: flex;
+            gap: var(--space-2xl);
+            margin-top: var(--space-2xl);
+            padding-top: var(--space-2xl);
+            border-top: 1px solid var(--gray-800);
+        }
+
+        .bio-legacy-stat-item {
+            text-align: center;
+        }
+
+        .bio-legacy-stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--accent);
+            line-height: 1;
+            margin-bottom: var(--space-sm);
+        }
+
+        .bio-legacy-stat-label {
+            font-family: var(--font-mono);
+            font-size: 0.65rem;
+            letter-spacing: 0.2em;
+            color: var(--gray-500);
+            text-transform: uppercase;
+        }
+
+        /* CTA Section */
+        .bio-cta {
+            padding: var(--space-4xl) var(--space-xl);
+            background: linear-gradient(to bottom, var(--black), var(--gray-950));
+            text-align: center;
+        }
+
+        .bio-cta-container {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .bio-cta h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: var(--space-lg);
+        }
+
+        .bio-cta p {
+            color: var(--gray-400);
+            margin-bottom: var(--space-2xl);
+            font-size: 1.1rem;
+        }
+
+        .bio-cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-lg);
+            flex-wrap: wrap;
+        }
+
+        .bio-cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-sm);
+            padding: var(--space-md) var(--space-2xl);
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+
+        .bio-cta-btn-primary {
+            background: var(--accent);
+            color: var(--black);
+        }
+
+        .bio-cta-btn-primary:hover {
+            background: var(--white);
+            transform: translateY(-2px);
+        }
+
+        .bio-cta-btn-secondary {
+            background: transparent;
+            color: var(--white);
+            border: 1px solid var(--gray-700);
+        }
+
+        .bio-cta-btn-secondary:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .bio-hero-content {
+                grid-template-columns: 1fr;
+                gap: var(--space-2xl);
+                padding-top: 150px;
+            }
+
+            .bio-image-container {
+                max-width: 500px;
+                margin: 0 auto;
+            }
+
+            .bio-social-strip {
+                display: none;
+            }
+
+            .bio-story-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .bio-brands-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .bio-legacy-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .bio-name {
+                font-size: 3rem;
+            }
+
+            .bio-legacy-stat {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loader -->
+    <div class="loader" id="loader">
+        <div class="loader-content">
+            <span class="loader-text">LAST NIGHT</span>
+            <div class="loader-bar"></div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <span class="logo-text">LAST NIGHT</span>
+                <span class="logo-zzz">ZZZ</span>
+            </a>
+            <div class="nav-links">
+                <a href="index.html#tickets" class="nav-link">TICKETS</a>
+                <a href="tbt.html" class="nav-link">TBT EVENTS</a>
+                <a href="index.html#merch-shop" class="nav-link">MERCH</a>
+                <a href="jj-bio.html" class="nav-link nav-link-accent">THE ARCHITECT</a>
+            </div>
+            <button class="nav-menu-btn" id="nav-menu-btn" aria-label="Menu">
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobile-menu">
+        <div class="mobile-menu-content">
+            <a href="index.html#tickets" class="mobile-link">TICKETS</a>
+            <a href="tbt.html" class="mobile-link">TBT EVENTS</a>
+            <a href="index.html#merch-shop" class="mobile-link">MERCH</a>
+            <a href="jj-bio.html" class="mobile-link">THE ARCHITECT</a>
+        </div>
+    </div>
+
+    <!-- Bio Hero -->
+    <section class="bio-hero">
+        <div class="bio-hero-bg"></div>
+        <div class="bio-hero-grain"></div>
+        
+        <div class="bio-hero-content">
+            <div class="bio-image-container">
+                <div class="bio-image-frame">
+                    <img src="https://scontent-lax3-2.cdninstagram.com/v/t51.2885-15/587807426_2681014618918950_5352559709707314246_n.jpg?stp=dst-jpg_e35_p1080x1080&_nc_ht=scontent-lax3-2.cdninstagram.com" alt="JJ - The Architect" class="bio-image">
+                    <span class="bio-image-label">@PARTY_BOY_JAY</span>
+                </div>
+                <div class="bio-social-strip">
+                    <a href="#">@PARTY_BOY_JAY</a>
+                    <a href="#">@LAST_NIGHT_ZZZ</a>
+                    <a href="#">@1_TBT_1</a>
+                </div>
+            </div>
+
+            <div class="bio-text-container">
+                <div class="bio-label">THE ARCHITECT</div>
+                <h1 class="bio-name">
+                    Party Boy
+                    <span>Jay</span>
+                </h1>
+                <p class="bio-title">Curator of Experiences • Central Valley's Premier Nightlife Architect</p>
+                
+                <p class="bio-intro">
+                    What started from humble beginnings in Bakersfield has evolved into the Central Valley's most 
+                    exclusive nightlife ecosystem. JJ doesn't just throw parties—he architects experiences that 
+                    become the stories you tell for years.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Story Section -->
+    <section class="bio-story">
+        <div class="bio-story-container">
+            <div class="bio-section-label">THE JOURNEY</div>
+            
+            <div class="bio-story-grid">
+                <div class="bio-story-chapter">
+                    <span class="bio-chapter-number">01</span>
+                    <div class="bio-chapter-content">
+                        <h3 class="bio-chapter-title">The Roots</h3>
+                        <p class="bio-chapter-text">
+                            The cultural DNA of Bakersfield nightlife runs deep—rooted in a tradition of grassroots 
+                            social organization that predates the digital era. From the chitlin' parties and fish fries 
+                            of the past to the modern underground scene, the Central Valley has always known how to 
+                            bring people together. JJ inherited this legacy and transformed it for a new generation.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bio-story-chapter">
+                    <span class="bio-chapter-number">02</span>
+                    <div class="bio-chapter-content">
+                        <h3 class="bio-chapter-title">The Evolution</h3>
+                        <p class="bio-chapter-text">
+                            Much like the legendary J.J. Malone who graduated from backyard practice sessions to 
+                            commanding stages across Bakersfield, Party Boy Jay's journey mirrors that same spirit 
+                            of relentless progression. From intimate gatherings to commanding the most sought-after 
+                            venues in the Valley, each event became a stepping stone to something greater.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bio-story-chapter">
+                    <span class="bio-chapter-number">03</span>
+                    <div class="bio-chapter-content">
+                        <h3 class="bio-chapter-title">The Philosophy</h3>
+                        <p class="bio-chapter-text">
+                            In an era of corporate, sanitized nightlife, JJ built something different—raw, authentic, 
+                            and unapologetically exclusive. The emphasis isn't on mass appeal; it's on creating 
+                            "Totally Unreal" moments for those who understand that the best nights can't be 
+                            manufactured. They have to be experienced.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bio-story-chapter">
+                    <span class="bio-chapter-number">04</span>
+                    <div class="bio-chapter-content">
+                        <h3 class="bio-chapter-title">The Empire</h3>
+                        <p class="bio-chapter-text">
+                            Today, JJ's digital and experiential architecture spans three primary platforms—each 
+                            serving a distinct purpose in the nightlife ecosystem. @party_boy_jay anchors the 
+                            lifestyle, @last_night_zzz delivers the flagship events, and @1_tbt_1 bridges 
+                            generations through nostalgia. Together, they form the most comprehensive nightlife 
+                            brand in the Central Valley.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quote Section -->
+    <section class="bio-quote-section">
+        <div class="bio-quote-bg">"</div>
+        <div class="bio-quote-container">
+            <p class="bio-quote">
+                "I don't just want you to attend the party. I want you to leave with a story worth telling. 
+                That's the difference between a night out and a night you'll never forget."
+            </p>
+            <span class="bio-quote-author">— JJ, PARTY BOY JAY</span>
+        </div>
+    </section>
+
+    <!-- Brands Section -->
+    <section class="bio-brands">
+        <div class="bio-brands-container">
+            <div class="bio-brands-header">
+                <div class="bio-section-label" style="justify-content: center;">THE ECOSYSTEM</div>
+                <h2 class="bio-brands-title">Three Brands. One Vision.</h2>
+                <p class="bio-brands-subtitle">THE ARCHITECTURE OF UNFORGETTABLE NIGHTS</p>
+            </div>
+
+            <div class="bio-brands-grid">
+                <div class="bio-brand-card">
+                    <span class="bio-brand-handle">@PARTY_BOY_JAY</span>
+                    <h3 class="bio-brand-name">The Lifestyle</h3>
+                    <p class="bio-brand-desc">
+                        The personal brand. The human face of the promotional machine. An aspirational lifestyle 
+                        that provides trust, connection, and a window into the world of curated experiences. 
+                        This is where the story begins.
+                    </p>
+                    <a href="#" class="bio-brand-link">
+                        FOLLOW THE JOURNEY
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                </div>
+
+                <div class="bio-brand-card">
+                    <span class="bio-brand-handle">@LAST_NIGHT_ZZZ</span>
+                    <h3 class="bio-brand-name">The Experience</h3>
+                    <p class="bio-brand-desc">
+                        The flagship. High-production, high-energy events that define what "Totally Private, 
+                        Totally Unreal" means. These aren't parties—they're singular cultural moments that 
+                        you either attended or you missed.
+                    </p>
+                    <a href="index.html" class="bio-brand-link">
+                        EXPLORE LAST NIGHT
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                </div>
+
+                <div class="bio-brand-card">
+                    <span class="bio-brand-handle">@1_TBT_1</span>
+                    <h3 class="bio-brand-name">The Legacy</h3>
+                    <p class="bio-brand-desc">
+                        Where nostalgia meets celebration. TBT bridges generations, bringing together those 
+                        who remember the beloved classics with those discovering them for the first time. 
+                        Transformation through music and memory.
+                    </p>
+                    <a href="tbt.html" class="bio-brand-link">
+                        DISCOVER TBT
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Legacy Section -->
+    <section class="bio-legacy">
+        <div class="bio-legacy-container">
+            <div class="bio-legacy-image">
+                <img src="https://scontent-lax3-1.cdninstagram.com/v/t51.2885-15/631475678_778235714747662_1139167440278001592_n.jpg?stp=dst-jpg_e35_p1080x1080&_nc_ht=scontent-lax3-1.cdninstagram.com" alt="Legacy of Bakersfield Nightlife" class="bio-legacy-img">
+                <div class="bio-legacy-caption">
+                    BAKERSFIELD, CA — THE HEARTBEAT OF THE CENTRAL VALLEY
+                </div>
+            </div>
+
+            <div class="bio-legacy-content">
+                <div class="bio-section-label">THE COMMUNITY</div>
+                <h3>Building More Than Parties—Building Unity</h3>
+                <p>
+                    The success of the JJ brand isn't measured just in attendance numbers or sellout times. 
+                    It's measured in the community it has built. By aligning with local venues like Temblor 
+                    Brewing Company and supporting the vibrant cultural fabric of Bakersfield, JJ has created 
+                    something that transcends nightlife.
+                </p>
+                <p>
+                    This is the "Unity Model"—turning attendees into members of an exclusive social cohort. 
+                    Early-bird access, exclusive invitations, and the promise that if you're part of this 
+                    community, you're not just a customer. You're part of something bigger.
+                </p>
+
+                <div class="bio-legacy-stat">
+                    <div class="bio-legacy-stat-item">
+                        <div class="bio-legacy-stat-number">50+</div>
+                        <div class="bio-legacy-stat-label">Events Produced</div>
+                    </div>
+                    <div class="bio-legacy-stat-item">
+                        <div class="bio-legacy-stat-number">15K+</div>
+                        <div class="bio-legacy-stat-label">Community Members</div>
+                    </div>
+                    <div class="bio-legacy-stat-item">
+                        <div class="bio-legacy-stat-number">100%</div>
+                        <div class="bio-legacy-stat-label">Sellout Rate</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="bio-cta">
+        <div class="bio-cta-container">
+            <div class="bio-section-label" style="justify-content: center;">JOIN THE MOVEMENT</div>
+            <h3>The Next Chapter Starts Now</h3>
+            <p>
+                Whether you're ready to experience your first LAST NIGHT event, throwback with TBT, 
+                or simply follow the journey—there's a place for you in this ecosystem.
+            </p>
+            <div class="bio-cta-buttons">
+                <a href="index.html#tickets" class="bio-cta-btn bio-cta-btn-primary">
+                    GET TICKETS
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+                <a href="index.html#blacklist" class="bio-cta-btn bio-cta-btn-secondary">
+                    JOIN THE BLACKLIST
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <span class="footer-logo">LAST NIGHT</span>
+                    <p class="footer-tagline">The Controlled Aftermath</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>EVENTS</h4>
+                        <a href="index.html#tickets">Tickets</a>
+                        <a href="tbt.html">TBT Events</a>
+                        <a href="#">Calendar</a>
+                    </div>
+                    <div class="footer-column">
+                        <h4>BRAND</h4>
+                        <a href="jj-bio.html">The Architect</a>
+                        <a href="index.html#merch-shop">Merch</a>
+                        <a href="#">Contact</a>
+                    </div>
+                    <div class="footer-column">
+                        <h4>LEGAL</h4>
+                        <a href="#">Terms</a>
+                        <a href="#">Privacy</a>
+                    </div>
+                </div>
+                <div class="footer-social">
+                    <a href="#" class="social-link" aria-label="Instagram">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="2" y="2" width="20" height="20" rx="5"/>
+                            <circle cx="12" cy="12" r="4"/>
+                            <circle cx="18" cy="6" r="1.5" fill="currentColor"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="social-link" aria-label="Twitter">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M4 4l11.733 16h4.267l-11.733-16zM4 20l6.4-8M20 4l-6.4 8"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="social-link" aria-label="TikTok">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="footer-copyright">© 2026 LAST NIGHT. ALL RIGHTS RESERVED.</p>
+                <p class="footer-time">
+                    <span class="time-dot"></span>
+                    <span id="current-time">00:00:00</span> LOCAL TIME
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
