@@ -18,7 +18,7 @@ const CONFIG = {
             price: 185,
             stock: 47,
             badge: 'FLAGSHIP',
-            image: 'https://scontent-lax3-2.cdninstagram.com/v/t51.2885-15/624952561_17985665945942183_4359954073133937075_n.jpg?stp=dst-jpg_e35_p1080x1080&_nc_ht=scontent-lax3-2.cdninstagram.com'
+            image: 'assets/product-aftermath-hoodie.jpg'
         },
         {
             id: 2,
@@ -28,7 +28,7 @@ const CONFIG = {
             price: 165,
             stock: 12,
             badge: null,
-            image: 'https://scontent-lax3-1.cdninstagram.com/v/t51.2885-15/631475678_778235714747662_1139167440278001592_n.jpg?stp=dst-jpg_e35_p1080x1080&_nc_ht=scontent-lax3-1.cdninstagram.com'
+            image: 'assets/product-zzz-cargo-pants.jpg'
         },
         {
             id: 3,
@@ -38,7 +38,7 @@ const CONFIG = {
             price: 75,
             stock: 89,
             badge: null,
-            image: 'https://scontent-lax3-2.cdninstagram.com/v/t51.2885-15/620521851_17985058652942183_4243724319673464720_n.jpg?stp=dst-jpg_e35_p1080x1080&_nc_ht=scontent-lax3-2.cdninstagram.com'
+            image: 'assets/product-dawn-tee.jpg'
         }
     ]
 };
@@ -330,7 +330,7 @@ function initProducts() {
                 price: 285,
                 stock: 23,
                 badge: 'BUNDLE',
-                image: 'https://scontent-lax3-2.cdninstagram.com/v/t51.2885-15/624952561_17985665945942183_4359954073133937075_n.jpg?stp=dst-jpg_e35_p1080x1080&_nc_ht=scontent-lax3-2.cdninstagram.com'
+                image: 'assets/product-aftermath-hoodie.jpg'
             });
         });
     }
@@ -1423,7 +1423,7 @@ const MerchShop = {
                 description: 'Premium 420gsm French Terry',
                 price: 185,
                 stock: 47,
-                image: 'https://scontent-lax3-2.cdninstagram.com/v/t51.2885-15/624952561_17985665945942183_4359954073133937075_n.jpg',
+                image: 'assets/product-aftermath-hoodie.jpg',
                 sizes: ['S', 'M', 'L', 'XL', 'XXL'],
                 category: 'hoodies'
             },
@@ -1433,7 +1433,7 @@ const MerchShop = {
                 description: 'Ripstop Technical Fabric',
                 price: 165,
                 stock: 12,
-                image: 'https://scontent-lax3-1.cdninstagram.com/v/t51.2885-15/631475678_778235714747662_1139167440278001592_n.jpg',
+                image: 'assets/product-zzz-cargo-pants.jpg',
                 sizes: ['S', 'M', 'L', 'XL'],
                 category: 'pants'
             },
@@ -1443,7 +1443,7 @@ const MerchShop = {
                 description: 'Oversized Boxy Cut',
                 price: 75,
                 stock: 89,
-                image: 'https://scontent-lax3-2.cdninstagram.com/v/t51.2885-15/620521851_17985058652942183_4243724319673464720_n.jpg',
+                image: 'assets/product-dawn-tee.jpg',
                 sizes: ['S', 'M', 'L', 'XL', 'XXL'],
                 category: 'tees'
             },
@@ -1453,7 +1453,7 @@ const MerchShop = {
                 description: 'Embroidered ZZZ Logo',
                 price: 45,
                 stock: 150,
-                image: 'https://scontent-lax3-2.cdninstagram.com/v/t51.2885-15/587284012_826483133619978_10360667013338369_n.jpg',
+                image: 'assets/product-insomniac-cap.jpg',
                 sizes: ['ONE SIZE'],
                 category: 'accessories'
             },
@@ -1463,7 +1463,7 @@ const MerchShop = {
                 description: 'Lightweight 320gsm Terry',
                 price: 145,
                 stock: 34,
-                image: 'https://scontent-lax3-2.cdninstagram.com/v/t51.2885-15/627634121_1567497644520035_2563627278548789564_n.jpg',
+                image: 'assets/product-night-shift-hoodie.jpg',
                 sizes: ['S', 'M', 'L', 'XL'],
                 category: 'hoodies'
             },
@@ -1473,7 +1473,7 @@ const MerchShop = {
                 description: 'Noise Print Graphic',
                 price: 65,
                 stock: 78,
-                image: 'https://scontent-lax3-2.cdninstagram.com/v/t51.2885-15/590314586_17980395947942183_4364496347723700883_n.jpg',
+                image: 'assets/product-static-tee.jpg',
                 sizes: ['S', 'M', 'L', 'XL', 'XXL'],
                 category: 'tees'
             }

@@ -57,7 +57,7 @@ const DataStore = {
                     description: 'Premium heavyweight hoodie crafted from 420gsm French Terry cotton.',
                     price: 185,
                     stock: 47,
-                    image: 'https://scontent-lax3-2.cdninstagram.com/v/t51.2885-15/624952561_17985665945942183_4359954073133937075_n.jpg',
+                    image: 'assets/product-aftermath-hoodie.jpg',
                     sizes: ['S', 'M', 'L', 'XL', 'XXL'],
                     category: 'hoodies',
                     active: true
@@ -68,7 +68,7 @@ const DataStore = {
                     description: 'Technical cargo pants constructed from durable ripstop fabric.',
                     price: 165,
                     stock: 12,
-                    image: 'https://scontent-lax3-1.cdninstagram.com/v/t51.2885-15/631475678_778235714747662_1139167440278001592_n.jpg',
+                    image: 'assets/product-zzz-cargo-pants.jpg',
                     sizes: ['S', 'M', 'L', 'XL'],
                     category: 'pants',
                     active: true
@@ -79,7 +79,7 @@ const DataStore = {
                     description: 'Relaxed fit tee in heavyweight cotton with puff-printed graphic.',
                     price: 75,
                     stock: 89,
-                    image: 'https://scontent-lax3-2.cdninstagram.com/v/t51.2885-15/620521851_17985058652942183_4243724319673464720_n.jpg',
+                    image: 'assets/product-dawn-tee.jpg',
                     sizes: ['S', 'M', 'L', 'XL', 'XXL'],
                     category: 'tees',
                     active: true
@@ -90,7 +90,7 @@ const DataStore = {
                     description: 'Structured cap with embroidered ZZZ logo.',
                     price: 45,
                     stock: 150,
-                    image: 'https://scontent-lax3-2.cdninstagram.com/v/t51.2885-15/587284012_826483133619978_10360667013338369_n.jpg',
+                    image: 'assets/product-insomniac-cap.jpg',
                     sizes: ['ONE SIZE'],
                     category: 'accessories',
                     active: true
