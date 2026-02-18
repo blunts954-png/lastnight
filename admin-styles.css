@@ -82,7 +82,10 @@
 .admin-form-group select:focus,
 .admin-form-group textarea:focus {
     outline: none;
-    border-color: var(--accent);
+    border-color: var(--neon-purple);
+    box-shadow: 
+        0 0 15px var(--neon-purple-glow),
+        inset 0 0 8px var(--neon-purple-dim);
 }
 
 .admin-form-group input::placeholder {
@@ -114,22 +117,32 @@
 }
 
 .admin-login-btn {
-    background: var(--accent);
-    color: var(--black);
+    background: var(--neon-purple-dim);
+    color: var(--neon-purple);
     padding: var(--space-md) var(--space-xl);
     font-family: var(--font-mono);
     font-weight: 700;
     font-size: 0.875rem;
     letter-spacing: 0.1em;
-    border: none;
+    border: 1px solid var(--neon-purple);
     cursor: pointer;
     transition: all 0.3s ease;
     position: relative;
+    box-shadow: 
+        0 0 20px var(--neon-purple-glow),
+        inset 0 0 10px var(--neon-purple-dim);
+    text-shadow: 0 0 10px var(--neon-purple-glow);
 }
 
 .admin-login-btn:hover {
-    background: var(--white);
+    background: var(--electric-blue-dim);
+    border-color: var(--electric-blue);
+    color: var(--electric-blue);
     transform: translateY(-2px);
+    box-shadow: 
+        0 0 30px var(--electric-blue-glow),
+        inset 0 0 15px var(--electric-blue-dim);
+    text-shadow: 0 0 15px var(--electric-blue-glow);
 }
 
 .admin-login-btn.loading .btn-text {
@@ -168,7 +181,7 @@
 }
 
 .admin-back-link:hover {
-    color: var(--accent);
+    color: var(--neon-purple);
 }
 
 .admin-login-visual {
@@ -203,14 +216,14 @@
     text-align: center;
     padding: var(--space-xl);
     background: rgba(0, 255, 65, 0.05);
-    border: 1px solid var(--accent-dim);
+    border: 1px solid var(--neon-purple-dim);
 }
 
 .visual-stat .stat-value {
     font-family: var(--font-mono);
     font-size: 2.5rem;
     font-weight: 700;
-    color: var(--accent);
+    color: var(--neon-purple);
     display: block;
     margin-bottom: var(--space-sm);
 }
@@ -254,7 +267,7 @@
     font-family: var(--font-mono);
     font-weight: 700;
     font-size: 1.25rem;
-    background: var(--accent);
+    background: var(--neon-purple);
     color: var(--black);
     padding: var(--space-xs) var(--space-sm);
 }
@@ -289,9 +302,9 @@
 }
 
 .admin-tab.active {
-    color: var(--accent);
-    border-color: var(--accent);
-    background: var(--accent-dim);
+    color: var(--neon-purple);
+    border-color: var(--neon-purple);
+    background: var(--neon-purple-dim);
 }
 
 .admin-nav-user {
@@ -417,7 +430,7 @@
 }
 
 .stat-trend.up {
-    color: var(--success);
+    color: var(--electric-blue);
 }
 
 .stat-trend.down {
@@ -435,7 +448,7 @@
 
 .progress-bar {
     height: 100%;
-    background: var(--accent);
+    background: var(--neon-purple);
     transition: width 0.5s ease;
 }
 
@@ -471,7 +484,7 @@
 
 .card-link {
     font-size: 0.75rem;
-    color: var(--accent);
+    color: var(--neon-purple);
     transition: opacity 0.3s ease;
 }
 
@@ -510,7 +523,7 @@
     justify-content: space-between;
     padding: var(--space-md);
     background: var(--gray-900);
-    border-left: 2px solid var(--accent);
+    border-left: 2px solid var(--neon-purple);
 }
 
 .recent-info {
@@ -531,7 +544,7 @@
 .recent-amount {
     font-family: var(--font-mono);
     font-weight: 700;
-    color: var(--accent);
+    color: var(--neon-purple);
 }
 
 /* ==========================================================================
@@ -580,8 +593,8 @@
 }
 
 .status-badge.valid {
-    background: var(--accent-dim);
-    color: var(--accent);
+    background: var(--neon-purple-dim);
+    color: var(--neon-purple);
 }
 
 .status-badge.used {
@@ -605,8 +618,8 @@
 }
 
 .status-badge.shipped {
-    background: var(--accent-dim);
-    color: var(--accent);
+    background: var(--neon-purple-dim);
+    color: var(--neon-purple);
 }
 
 .status-badge.delivered {
@@ -627,8 +640,8 @@
 }
 
 .action-btn:hover {
-    border-color: var(--accent);
-    color: var(--accent);
+    border-color: var(--neon-purple);
+    color: var(--neon-purple);
 }
 
 .action-btn.danger:hover {
@@ -687,7 +700,7 @@
 .scanner-frame {
     position: absolute;
     inset: 20%;
-    border: 2px solid var(--accent);
+    border: 2px solid var(--neon-purple);
     pointer-events: none;
 }
 
@@ -695,7 +708,7 @@
     position: absolute;
     width: 20px;
     height: 20px;
-    border: 3px solid var(--accent);
+    border: 3px solid var(--neon-purple);
 }
 
 .scanner-corner.tl { top: -3px; left: -3px; border-right: none; border-bottom: none; }
@@ -708,8 +721,8 @@
     left: 0;
     right: 0;
     height: 2px;
-    background: var(--accent);
-    box-shadow: 0 0 10px var(--accent);
+    background: var(--neon-purple);
+    box-shadow: 0 0 10px var(--neon-purple);
     animation: scanLine 2s ease-in-out infinite;
 }
 
@@ -729,7 +742,7 @@
     align-items: center;
     justify-content: center;
     gap: var(--space-sm);
-    background: var(--accent);
+    background: var(--neon-purple);
     color: var(--black);
     padding: var(--space-md);
     font-family: var(--font-mono);
@@ -752,8 +765,8 @@
 }
 
 .scanner-btn.secondary:hover {
-    border-color: var(--accent);
-    color: var(--accent);
+    border-color: var(--neon-purple);
+    color: var(--neon-purple);
 }
 
 .scanner-btn.active {
@@ -776,8 +789,8 @@
 }
 
 .result-status.valid {
-    background: var(--accent-dim);
-    border: 1px solid var(--accent);
+    background: var(--neon-purple-dim);
+    border: 1px solid var(--neon-purple);
 }
 
 .result-status.invalid {
@@ -801,7 +814,7 @@
     letter-spacing: 0.1em;
 }
 
-.result-status.valid .status-text { color: var(--accent); }
+.result-status.valid .status-text { color: var(--neon-purple); }
 .result-status.invalid .status-text { color: var(--danger); }
 .result-status.used .status-text { color: var(--warning); }
 
@@ -850,7 +863,7 @@
     font-family: var(--font-mono);
     font-size: 2.5rem;
     font-weight: 700;
-    color: var(--accent);
+    color: var(--neon-purple);
     display: block;
 }
 
@@ -905,7 +918,7 @@
 .checkbox-group input[type="checkbox"] {
     width: 18px;
     height: 18px;
-    accent-color: var(--accent);
+    accent-color: var(--neon-purple);
 }
 
 .checkbox-group label {
@@ -929,7 +942,7 @@
 }
 
 .admin-btn.primary {
-    background: var(--accent);
+    background: var(--neon-purple);
     color: var(--black);
 }
 
@@ -944,8 +957,8 @@
 }
 
 .admin-btn.secondary:hover {
-    border-color: var(--accent);
-    color: var(--accent);
+    border-color: var(--neon-purple);
+    color: var(--neon-purple);
 }
 
 /* ==========================================================================
@@ -1056,7 +1069,7 @@
     justify-content: space-between;
     padding: var(--space-lg);
     background: var(--gray-900);
-    border-left: 3px solid var(--accent);
+    border-left: 3px solid var(--neon-purple);
 }
 
 .event-item-info h4 {
@@ -1082,7 +1095,7 @@
     font-family: var(--font-mono);
     font-size: 1.25rem;
     font-weight: 700;
-    color: var(--accent);
+    color: var(--neon-purple);
     display: block;
 }
 
@@ -1118,7 +1131,7 @@
 
 .admin-product-price {
     font-family: var(--font-mono);
-    color: var(--accent);
+    color: var(--neon-purple);
     margin-bottom: var(--space-sm);
 }
 

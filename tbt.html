@@ -15,12 +15,14 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <style>
-        /* TBT Page Specific Styles */
+        /* TBT Page Specific Styles - COSMIC THEME */
         :root {
-            --tbt-gold: #D4AF37;
-            --tbt-gold-dim: rgba(212, 175, 55, 0.1);
-            --tbt-gold-glow: rgba(212, 175, 55, 0.3);
-            --tbt-purple: #9B59B6;
+            --tbt-neon-purple: #B829FF;
+            --tbt-neon-purple-dim: rgba(184, 41, 255, 0.15);
+            --tbt-neon-purple-glow: rgba(184, 41, 255, 0.5);
+            --tbt-electric-blue: #00D4FF;
+            --tbt-electric-blue-dim: rgba(0, 212, 255, 0.15);
+            --tbt-electric-blue-glow: rgba(0, 212, 255, 0.5);
         }
 
         .tbt-hero {
@@ -40,9 +42,9 @@
             width: 100%;
             height: 100%;
             background: 
-                radial-gradient(ellipse at 20% 80%, rgba(212, 175, 55, 0.15) 0%, transparent 50%),
-                radial-gradient(ellipse at 80% 20%, rgba(155, 89, 182, 0.1) 0%, transparent 50%),
-                radial-gradient(ellipse at 50% 50%, rgba(212, 175, 55, 0.05) 0%, transparent 70%);
+                radial-gradient(ellipse at 20% 80%, var(--tbt-neon-purple-dim) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 20%, var(--tbt-electric-blue-dim) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 50%, rgba(184, 41, 255, 0.05) 0%, transparent 70%);
         }
 
         .tbt-hero-retro-lines {
@@ -56,8 +58,8 @@
                     0deg,
                     transparent,
                     transparent 2px,
-                    rgba(212, 175, 55, 0.03) 2px,
-                    rgba(212, 175, 55, 0.03) 4px
+                    rgba(184, 41, 255, 0.03) 2px,
+                    rgba(0, 212, 255, 0.03) 4px
                 );
             pointer-events: none;
             animation: scanlines 8s linear infinite;
@@ -91,15 +93,19 @@
             display: inline-flex;
             align-items: center;
             gap: var(--space-md);
-            background: var(--tbt-gold-dim);
-            border: 1px solid var(--tbt-gold);
+            background: var(--tbt-neon-purple-dim);
+            border: 1px solid var(--tbt-neon-purple);
             padding: var(--space-sm) var(--space-lg);
             font-family: var(--font-mono);
             font-size: 0.7rem;
             letter-spacing: 0.3em;
-            color: var(--tbt-gold);
+            color: var(--tbt-neon-purple);
             margin-bottom: var(--space-2xl);
             animation: fadeInUp 1s var(--ease-out) 0.3s both;
+            box-shadow: 
+                0 0 20px var(--tbt-neon-purple-glow),
+                inset 0 0 10px var(--tbt-neon-purple-dim);
+            text-shadow: 0 0 10px var(--tbt-neon-purple-glow);
         }
 
         .tbt-badge-icon {
@@ -117,8 +123,12 @@
         }
 
         .tbt-title-highlight {
-            color: var(--tbt-gold);
+            color: var(--tbt-neon-purple);
             font-style: italic;
+            text-shadow: 
+                0 0 10px var(--tbt-neon-purple),
+                0 0 20px var(--tbt-neon-purple-glow),
+                0 0 40px var(--tbt-electric-blue-glow);
         }
 
         .tbt-subtitle {
@@ -144,8 +154,8 @@
             display: inline-flex;
             align-items: center;
             gap: var(--space-md);
-            background: var(--tbt-gold);
-            color: var(--black);
+            background: var(--tbt-neon-purple-dim);
+            color: var(--tbt-neon-purple);
             padding: var(--space-md) var(--space-2xl);
             font-family: var(--font-mono);
             font-size: 0.85rem;
@@ -153,12 +163,22 @@
             letter-spacing: 0.15em;
             transition: all 0.3s ease;
             animation: fadeInUp 1s var(--ease-out) 1.1s both;
+            border: 1px solid var(--tbt-neon-purple);
+            box-shadow: 
+                0 0 20px var(--tbt-neon-purple-glow),
+                inset 0 0 10px var(--tbt-neon-purple-dim);
+            text-shadow: 0 0 10px var(--tbt-neon-purple-glow);
         }
 
         .tbt-cta:hover {
-            background: var(--white);
+            background: var(--tbt-electric-blue-dim);
+            border-color: var(--tbt-electric-blue);
+            color: var(--tbt-electric-blue);
             transform: translateY(-3px);
-            box-shadow: 0 10px 40px var(--tbt-gold-glow);
+            box-shadow: 
+                0 10px 40px var(--tbt-electric-blue-glow),
+                inset 0 0 15px var(--tbt-electric-blue-dim);
+            text-shadow: 0 0 15px var(--tbt-electric-blue-glow);
         }
 
         /* Concept Section */
@@ -589,18 +609,20 @@
             font-family: var(--font-mono);
             font-size: 0.7rem;
             letter-spacing: 0.15em;
-            color: var(--tbt-gold);
+            color: var(--tbt-neon-purple);
+            text-shadow: 0 0 10px var(--tbt-neon-purple-glow);
         }
 
         .tbt-gallery-date {
             font-size: 0.75rem;
-            color: var(--gray-500);
+            color: var(--tbt-electric-blue);
+            text-shadow: 0 0 5px var(--tbt-electric-blue-glow);
         }
 
         /* Newsletter Section */
         .tbt-newsletter {
             padding: var(--space-4xl) var(--space-xl);
-            background: linear-gradient(135deg, var(--gray-950) 0%, var(--black) 100%);
+            background: linear-gradient(135deg, var(--black) 0%, rgba(184, 41, 255, 0.1) 50%, var(--black) 100%);
             position: relative;
             overflow: hidden;
         }
@@ -613,9 +635,10 @@
             transform: translateY(-50%);
             font-family: 'Playfair Display', serif;
             font-size: 30vw;
-            color: var(--tbt-gold);
-            opacity: 0.03;
+            color: var(--tbt-neon-purple);
+            opacity: 0.05;
             pointer-events: none;
+            text-shadow: 0 0 100px var(--tbt-neon-purple-glow);
         }
 
         .tbt-newsletter-container {
@@ -657,8 +680,11 @@
         }
 
         .tbt-newsletter-input:focus {
-            border-color: var(--tbt-gold);
+            border-color: var(--tbt-neon-purple);
             outline: none;
+            box-shadow: 
+                0 0 15px var(--tbt-neon-purple-glow),
+                inset 0 0 10px var(--tbt-neon-purple-dim);
         }
 
         .tbt-newsletter-input::placeholder {
@@ -667,18 +693,29 @@
 
         .tbt-newsletter-btn {
             padding: var(--space-md) var(--space-xl);
-            background: var(--tbt-gold);
-            color: var(--black);
+            background: var(--tbt-neon-purple-dim);
+            color: var(--tbt-neon-purple);
             font-family: var(--font-mono);
             font-size: 0.8rem;
             font-weight: 600;
             letter-spacing: 0.1em;
             transition: all 0.3s ease;
             white-space: nowrap;
+            border: 1px solid var(--tbt-neon-purple);
+            box-shadow: 
+                0 0 15px var(--tbt-neon-purple-glow),
+                inset 0 0 8px var(--tbt-neon-purple-dim);
+            text-shadow: 0 0 8px var(--tbt-neon-purple-glow);
         }
 
         .tbt-newsletter-btn:hover {
-            background: var(--white);
+            background: var(--tbt-electric-blue-dim);
+            border-color: var(--tbt-electric-blue);
+            color: var(--tbt-electric-blue);
+            box-shadow: 
+                0 0 25px var(--tbt-electric-blue-glow),
+                inset 0 0 12px var(--tbt-electric-blue-dim);
+            text-shadow: 0 0 12px var(--tbt-electric-blue-glow);
         }
 
         /* Responsive */
@@ -777,23 +814,22 @@
 
         <div class="tbt-hero-content">
             <div class="tbt-badge">
-                <span class="tbt-badge-icon">📀</span>
-                <span>THROWBACK THURSDAY</span>
+                <span class="tbt-badge-icon">👕</span>
+                <span>AFTERMATH CLOTHING</span>
             </div>
 
             <h1 class="tbt-title">
-                <span class="tbt-title-highlight">TBT</span>
+                <span class="tbt-title-highlight">AFTERMATH</span>
             </h1>
 
-            <p class="tbt-subtitle">@1_TBT_1</p>
+            <p class="tbt-subtitle">Streetwear • Limited Runs • Crafted in Bakersfield</p>
 
             <p class="tbt-tagline">
-                "Where nostalgia meets celebration. Relive the moments that made us. 
-                Experience the classics like they were meant to be heard."
+                The official clothing line for LAST NIGHT. Heavyweight hoodies, technical cargos, and limited tees—designed for the ones who never left.
             </p>
 
-            <a href="#tbt-events" class="tbt-cta">
-                UPCOMING EVENTS
+            <a href="index.html#merch-shop" class="tbt-cta">
+                SHOP THE COLLECTION
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M12 5v14M5 12l7 7 7-7"/>
                 </svg>
@@ -1021,6 +1057,34 @@
                     <div class="tbt-gallery-overlay">
                         <div class="tbt-gallery-caption">CLASSICS ONLY</div>
                         <div class="tbt-gallery-date">September 2025</div>
+                    </div>
+                </div>
+                <div class="tbt-gallery-item">
+                    <img src="assets/1DD98BB6-A6D0-4B8E-8B25-2BBE6A40E456.jpeg" alt="Studio Session">
+                    <div class="tbt-gallery-overlay">
+                        <div class="tbt-gallery-caption">STUDIO SESSION</div>
+                        <div class="tbt-gallery-date">February 2026</div>
+                    </div>
+                </div>
+                <div class="tbt-gallery-item">
+                    <img src="assets/IMG_0631.png" alt="Crew Love">
+                    <div class="tbt-gallery-overlay">
+                        <div class="tbt-gallery-caption">CREW LOVE</div>
+                        <div class="tbt-gallery-date">February 2026</div>
+                    </div>
+                </div>
+                <div class="tbt-gallery-item">
+                    <img src="assets/IMG_0634.png" alt="Squad Goals">
+                    <div class="tbt-gallery-overlay">
+                        <div class="tbt-gallery-caption">SQUAD GOALS</div>
+                        <div class="tbt-gallery-date">February 2026</div>
+                    </div>
+                </div>
+                <div class="tbt-gallery-item">
+                    <img src="assets/IMG_0636.png" alt="Besties">
+                    <div class="tbt-gallery-overlay">
+                        <div class="tbt-gallery-caption">BESTIES</div>
+                        <div class="tbt-gallery-date">February 2026</div>
                     </div>
                 </div>
             </div>

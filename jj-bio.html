@@ -31,8 +31,8 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: radial-gradient(ellipse at 30% 50%, rgba(0, 255, 65, 0.08) 0%, transparent 60%),
-                        radial-gradient(ellipse at 70% 80%, rgba(0, 255, 65, 0.05) 0%, transparent 40%);
+            background: radial-gradient(ellipse at 30% 50%, rgba(184, 41, 255, 0.15) 0%, transparent 60%),
+                        radial-gradient(ellipse at 70% 80%, rgba(0, 212, 255, 0.1) 0%, transparent 40%);
         }
 
         .bio-hero-grain {
@@ -76,8 +76,11 @@
             left: -2px;
             right: -2px;
             bottom: -2px;
-            background: linear-gradient(135deg, var(--accent), transparent 50%, var(--accent));
+            background: linear-gradient(135deg, var(--neon-purple), transparent 50%, var(--electric-blue));
             z-index: -1;
+            box-shadow: 
+                0 0 30px var(--neon-purple-glow),
+                0 0 60px var(--electric-blue-glow);
         }
 
         .bio-image {
@@ -100,7 +103,7 @@
             font-family: var(--font-mono);
             font-size: 0.7rem;
             letter-spacing: 0.3em;
-            color: var(--accent);
+            color: var(--neon-purple);
             background: rgba(0, 0, 0, 0.8);
             padding: var(--space-sm) var(--space-md);
             backdrop-filter: blur(10px);
@@ -125,7 +128,7 @@
         }
 
         .bio-social-strip a:hover {
-            color: var(--accent);
+            color: var(--neon-purple);
         }
 
         .bio-text-container {
@@ -139,7 +142,7 @@
             font-family: var(--font-mono);
             font-size: 0.7rem;
             letter-spacing: 0.3em;
-            color: var(--accent);
+            color: var(--neon-purple);
             margin-bottom: var(--space-lg);
         }
 
@@ -147,7 +150,7 @@
             content: '';
             width: 40px;
             height: 1px;
-            background: var(--accent);
+            background: var(--neon-purple);
         }
 
         .bio-name {
@@ -162,7 +165,7 @@
         .bio-name span {
             display: block;
             font-style: italic;
-            color: var(--accent);
+            color: var(--neon-purple);
         }
 
         .bio-title {
@@ -179,7 +182,7 @@
             line-height: 1.8;
             color: var(--gray-300);
             margin-bottom: var(--space-xl);
-            border-left: 2px solid var(--accent);
+            border-left: 2px solid var(--neon-purple);
             padding-left: var(--space-lg);
         }
 
@@ -201,7 +204,7 @@
             font-family: var(--font-mono);
             font-size: 0.7rem;
             letter-spacing: 0.3em;
-            color: var(--accent);
+            color: var(--neon-purple);
             margin-bottom: var(--space-2xl);
         }
 
@@ -296,7 +299,7 @@
             font-family: var(--font-mono);
             font-size: 0.75rem;
             letter-spacing: 0.3em;
-            color: var(--accent);
+            color: var(--neon-purple);
         }
 
         /* Brands Section */
@@ -344,7 +347,7 @@
         }
 
         .bio-brand-card:hover {
-            border-color: var(--accent);
+            border-color: var(--neon-purple);
             transform: translateY(-4px);
         }
 
@@ -355,7 +358,7 @@
             left: 0;
             width: 100%;
             height: 3px;
-            background: var(--accent);
+            background: var(--neon-purple);
             transform: scaleX(0);
             transform-origin: left;
             transition: transform 0.4s ease;
@@ -369,7 +372,7 @@
             font-family: var(--font-mono);
             font-size: 0.75rem;
             letter-spacing: 0.15em;
-            color: var(--accent);
+            color: var(--neon-purple);
             margin-bottom: var(--space-md);
         }
 
@@ -398,7 +401,7 @@
         }
 
         .bio-brand-link:hover {
-            color: var(--accent);
+            color: var(--neon-purple);
         }
 
         .bio-brand-link svg {
@@ -475,7 +478,7 @@
         .bio-legacy-stat-number {
             font-family: 'Playfair Display', serif;
             font-size: 2.5rem;
-            color: var(--accent);
+            color: var(--neon-purple);
             line-height: 1;
             margin-bottom: var(--space-sm);
         }
@@ -532,7 +535,7 @@
         }
 
         .bio-cta-btn-primary {
-            background: var(--accent);
+            background: var(--neon-purple);
             color: var(--black);
         }
 
@@ -548,8 +551,8 @@
         }
 
         .bio-cta-btn-secondary:hover {
-            border-color: var(--accent);
-            color: var(--accent);
+            border-color: var(--neon-purple);
+            color: var(--neon-purple);
         }
 
         /* Responsive */

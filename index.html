@@ -26,6 +26,19 @@
         </div>
     </div>
 
+    <!-- Starfield + Nebula overlays (visual only) -->
+    <div class="starfield" id="starfield" aria-hidden="true"></div>
+    <div class="nebula-bg" aria-hidden="true"></div>
+
+    <!-- Splash overlay: plays `assets/video2.MOV` for ~15s before revealing site -->
+    <div id="splash-overlay" class="splash-overlay" aria-hidden="false">
+        <video id="splash-video" class="splash-video" autoplay muted playsinline preload="auto" poster="assets/146DCE7A-FE8C-4EED-9EBE-43E4173B2B38.jpeg">
+            <source src="assets/video2.MOV" type="video/quicktime">
+            <source src="assets/video2.MOV" type="video/mp4">
+        </video>
+        <button id="splash-skip" class="splash-skip" aria-label="Skip Intro">Skip</button>
+    </div>
+
     <!-- Cursor -->
     <div class="cursor" id="cursor"></div>
     <div class="cursor-follower" id="cursor-follower"></div>
@@ -73,11 +86,18 @@
                 <source src="assets/hero-video.mp4" type="video/mp4">
                 <!-- Fallback: Instagram Reel/Video URL can be used here -->
             </video>
+            <!-- Front page secondary video (video1) - wired to existing asset `video1.MOV` -->
+            <video id="front-video" class="front-video" preload="metadata" playsinline muted controls style="display:none;" poster="assets/IMG_0631.png">
+                <source src="assets/video1.MOV" type="video/quicktime">
+                <source src="assets/video1.MOV" type="video/mp4">
+            </video>
             <div class="hero-video-overlay"></div>
             <div class="hero-grain"></div>
         </div>
         
         <div class="hero-content">
+            <!-- Brand image shown on front page (using existing asset) -->
+            <img src="assets/146DCE7A-FE8C-4EED-9EBE-43E4173B2B38.jpeg" alt="Brand" class="hero-brand-image" />
             <div class="hero-badge">
                 <span class="badge-dot"></span>
                 <span>BAKERSFIELD'S MOST EXCLUSIVE</span>
@@ -411,51 +431,49 @@
             </div>
 
             <div class="ticket-tiers" id="ticket-tiers-display">
-                <!-- Tier 1: GA -->
+                <!-- Tier 1: Pre-order / First hour -->
                 <div class="ticket-tier-card" data-tier="ga">
                     <div class="tier-header">
-                        <span class="tier-name">GENERAL ADMISSION</span>
+                        <span class="tier-name">PRE-ORDER — FIRST HOUR</span>
                         <span class="tier-availability">
                             <span class="availability-dot"></span>
-                            <span id="ga-remaining">127</span> LEFT
+                            <span id="ga-remaining">200</span> LEFT
                         </span>
                     </div>
                     <div class="tier-price">
                         <span class="price-currency">$</span>
-                        <span class="price-amount" id="ga-price">45</span>
+                        <span class="price-amount" id="ga-price">5</span>
                     </div>
                     <ul class="tier-perks">
-                        <li>Entry after 11:00 PM</li>
-                        <li>Access to main floor</li>
-                        <li>1 drink ticket included</li>
+                        <li>First-hour pre-order price</li>
+                        <li>Limited to 200 tickets</li>
+                        <li>Priority entry for early guests</li>
                     </ul>
                     <button class="tier-buy-btn" data-tier="ga">
-                        <span>BUY NOW</span>
+                        <span>PRE-ORDER</span>
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M5 12h14M12 5l7 7-7 7"/>
                         </svg>
                     </button>
                 </div>
 
-                <!-- Tier 2: VIP -->
+                <!-- Tier 2: General Admission (normal) -->
                 <div class="ticket-tier-card featured" data-tier="vip">
-                    <div class="tier-badge">MOST POPULAR</div>
+                    <div class="tier-badge">STANDARD</div>
                     <div class="tier-header">
-                        <span class="tier-name">VIP ACCESS</span>
+                        <span class="tier-name">GENERAL ADMISSION</span>
                         <span class="tier-availability low">
                             <span class="availability-dot"></span>
-                            <span id="vip-remaining">23</span> LEFT
+                            <span id="vip-remaining">1000</span> LEFT
                         </span>
                     </div>
                     <div class="tier-price">
                         <span class="price-currency">$</span>
-                        <span class="price-amount" id="vip-price">95</span>
+                        <span class="price-amount" id="vip-price">10</span>
                     </div>
                     <ul class="tier-perks">
-                        <li>Priority entry from 10:00 PM</li>
-                        <li>VIP lounge access</li>
-                        <li>3 drink tickets included</li>
-                        <li>Exclusive merch item</li>
+                        <li>Standard entry</li>
+                        <li>Access to main floor</li>
                     </ul>
                     <button class="tier-buy-btn" data-tier="vip">
                         <span>BUY NOW</span>
@@ -465,29 +483,27 @@
                     </button>
                 </div>
 
-                <!-- Tier 3: Table -->
+                <!-- Tier 3: VIP Ticket -->
                 <div class="ticket-tier-card premium" data-tier="table">
-                    <div class="tier-badge premium">EXCLUSIVE</div>
+                    <div class="tier-badge premium">VIP</div>
                     <div class="tier-header">
-                        <span class="tier-name">TABLE SERVICE</span>
+                        <span class="tier-name">VIP TICKET</span>
                         <span class="tier-availability critical">
                             <span class="availability-dot"></span>
-                            <span id="table-remaining">5</span> LEFT
+                            <span id="table-remaining">50</span> LEFT
                         </span>
                     </div>
                     <div class="tier-price">
                         <span class="price-currency">$</span>
-                        <span class="price-amount" id="table-price">500</span>
+                        <span class="price-amount" id="table-price">30</span>
                     </div>
                     <ul class="tier-perks">
-                        <li>Private table for 6 guests</li>
-                        <li>2 premium bottle service</li>
-                        <li>Dedicated server all night</li>
-                        <li>VIP entrance + backstage</li>
-                        <li>Limited edition event merch</li>
+                        <li>Includes 1 drink</li>
+                        <li>On-stage access & photo with J.J</li>
+                        <li>VIP entrance & priority service</li>
                     </ul>
                     <button class="tier-buy-btn" data-tier="table">
-                        <span>BUY NOW</span>
+                        <span>BUY VIP</span>
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M5 12h14M12 5l7 7-7 7"/>
                         </svg>

@@ -115,7 +115,48 @@ document.addEventListener('DOMContentLoaded', () => {
     initTime();
     initSmoothScroll();
     initMobileMenu();
+    initSplash();
+    createShootingStars();
+    initPreorderWindow();
+    updateTicketPricesDisplay();
+    setInterval(updateTicketPricesDisplay, 30000);
 });
+
+function initPreorderWindow() {
+    const key = 'ln_preorder_ends';
+    const existing = localStorage.getItem(key);
+    if (!existing) {
+        const ends = Date.now() + (60 * 60 * 1000); // 1 hour from first visit
+        localStorage.setItem(key, String(ends));
+    }
+}
+
+function isPreorderActive() {
+    const key = 'ln_preorder_ends';
+    const val = parseInt(localStorage.getItem(key) || '0', 10);
+    return Date.now() < val;
+}
+
+function getRemainingForTier(tierId) {
+    const events = JSON.parse(localStorage.getItem('ln_events') || '[]');
+    const event = events.find(e => e.active) || null;
+    if (!event || !event.tiers) return Infinity;
+    const tier = event.tiers.find(t => t.id === tierId);
+    if (!tier) return Infinity;
+    return Math.max(0, tier.quantity - (tier.sold || 0));
+}
+
+function updateTicketPricesDisplay() {
+    // Update DOM prices based on preorder window
+    const gaPriceEl = document.getElementById('ga-price');
+    const vipPriceEl = document.getElementById('vip-price');
+    const tablePriceEl = document.getElementById('table-price');
+    const preorderActive = isPreorderActive();
+
+    if (gaPriceEl) gaPriceEl.textContent = preorderActive ? String(TicketSystem.TIERS.ga.price) : String(TicketSystem.TIERS.vip.price);
+    if (vipPriceEl) vipPriceEl.textContent = String(TicketSystem.TIERS.vip.price);
+    if (tablePriceEl) tablePriceEl.textContent = String(TicketSystem.TIERS.table.price);
+}
 
 // ==========================================================================
 // Loader
@@ -778,6 +819,84 @@ if (typeof module !== 'undefined' && module.exports) {
 }
 
 // ==========================================================================
+// Splash + Starfield helpers
+// ==========================================================================
+
+function initSplash() {
+    const overlay = document.getElementById('splash-overlay');
+    const video = document.getElementById('splash-video');
+    const skip = document.getElementById('splash-skip');
+    if (!overlay || !video) return;
+
+    document.body.classList.add('no-scroll');
+    let finished = false;
+
+    function endSplash() {
+        if (finished) return;
+        finished = true;
+        overlay.classList.add('hidden');
+        overlay.setAttribute('aria-hidden', 'true');
+        try { video.pause(); } catch (e) {}
+        document.body.classList.remove('no-scroll');
+    }
+
+    // auto close after ~15s on desktop, shorter on touch devices
+    const isTouch = ('ontouchstart' in window) || matchMedia('(hover: none) and (pointer: coarse)').matches;
+    const autoCloseDelay = isTouch ? 5000 : 15000;
+    const autoClose = setTimeout(endSplash, autoCloseDelay);
+
+    // if video ends sooner, close early
+    video.addEventListener('ended', () => {
+        clearTimeout(autoClose);
+        endSplash();
+    });
+
+    // Skip button
+    if (skip) {
+        skip.addEventListener('click', () => {
+            clearTimeout(autoClose);
+            endSplash();
+        });
+    }
+
+    // try to play (some browsers block autoplay with sound; video is muted so should play)
+    video.play().catch(() => {});
+}
+
+function createShootingStars(count = 6) {
+    const container = document.getElementById('starfield');
+    if (!container) return;
+
+    for (let i = 0; i < count; i++) {
+        const el = document.createElement('div');
+        el.className = 'shooting-star';
+        const top = Math.random() * 80 + 5; // percent of viewport height
+        el.style.top = `${top}vh`;
+        el.style.left = `${-20 - Math.random() * 40}vw`;
+        el.style.animationDelay = `${Math.random() * 8}s`;
+        el.style.animationDuration = `${2 + Math.random() * 3}s`;
+        el.style.transform = `rotate(${ -20 - Math.random() * 40 }deg)`;
+        container.appendChild(el);
+        // remove after animation run to keep DOM clean
+        setTimeout(() => { try { container.removeChild(el); } catch (e) {} }, 10000);
+    }
+
+    // spawn occasional shooting stars
+    setInterval(() => {
+        const el = document.createElement('div');
+        el.className = 'shooting-star';
+        const top = Math.random() * 80 + 5;
+        el.style.top = `${top}vh`;
+        el.style.left = `${-20}vw`;
+        el.style.animationDelay = '0s';
+        el.style.animationDuration = `${2 + Math.random() * 3}s`;
+        el.style.transform = `rotate(${ -30 + Math.random() * 60 }deg)`;
+        container.appendChild(el);
+        setTimeout(() => { try { container.removeChild(el); } catch (e) {} }, 9000);
+    }, 3000 + Math.random() * 3000);
+}
+
+// ==========================================================================
 // TICKETS SYSTEM
 // ==========================================================================
 
@@ -796,10 +915,13 @@ const TicketSystem = {
     API_URL: '/api/ticket-purchase',
 
     // Ticket pricing
+    // ga: Pre-order / first hour limited tier
+    // vip: General admission (normal)
+    // table: VIP ticket with perks
     TIERS: {
-        ga: { name: 'General Admission', price: 45, fee: 5 },
-        vip: { name: 'VIP Access', price: 95, fee: 10 },
-        table: { name: 'Table Service', price: 500, fee: 25 }
+        ga: { name: 'PRE-ORDER (FIRST HOUR)', price: 5, fee: 0, limit: 200, description: 'First hour pre-order — limited to 200' },
+        vip: { name: 'GENERAL ADMISSION', price: 10, fee: 1, limit: 1000, description: 'Standard entry' },
+        table: { name: 'VIP TICKET', price: 30, fee: 2, limit: 50, perks: ['1 drink', 'On-stage with J.J'], description: 'Includes one drink and on-stage access with J.J.' }
     },
 
     init() {
@@ -823,7 +945,13 @@ const TicketSystem = {
             name: 'LAST NIGHT: THE CONTROLLED AFTERMATH',
             date: '2026-03-15',
             time: '22:00',
-            venue: 'The Warehouse LA'
+            venue: 'The Warehouse LA',
+            tiers: [
+                { id: 'ga', name: this.TIERS.ga.name, quantity: this.TIERS.ga.limit || 200, sold: 0 },
+                { id: 'vip', name: this.TIERS.vip.name, quantity: this.TIERS.vip.limit || 1000, sold: 0 },
+                { id: 'table', name: this.TIERS.table.name, quantity: this.TIERS.table.limit || 50, sold: 0 }
+            ],
+            active: true
         };
 
         // Update event display
@@ -948,8 +1076,14 @@ const TicketSystem = {
     openCheckout(tier) {
         this.currentTier = tier;
         this.currentQuantity = 1;
-        
-        const tierData = this.TIERS[tier];
+
+        // Compute tier data taking into account preorder window
+        let tierData = Object.assign({}, this.TIERS[tier]);
+        if (tier === 'ga' && !isPreorderActive()) {
+            // Preorder expired — treat as normal GA price
+            tierData.price = this.TIERS.vip.price;
+            tierData.name = this.TIERS.vip.name;
+        }
         const modal = document.getElementById('ticket-checkout-modal');
         
         // Update modal content
@@ -1105,6 +1239,14 @@ const TicketSystem = {
         
         const eventId = this.currentEvent?.id || 'EVT001';
         const generatedTickets = [];
+        const remaining = getRemainingForTier(this.currentTier);
+        if (remaining < this.currentQuantity) {
+            showToast('Not enough tickets available for this tier.');
+            const submitBtn = document.getElementById('submit-ticket-payment');
+            submitBtn.classList.remove('loading');
+            submitBtn.disabled = false;
+            return;
+        }
         
         // Generate unique ticket for each quantity
         for (let i = 0; i < this.currentQuantity; i++) {
@@ -1666,10 +1808,52 @@ const MerchShop = {
 };
 
 // ==========================================================================
+// Starfield Animation System
+// ==========================================================================
+
+const StarfieldSystem = {
+    init() {
+        this.createStarfield();
+        this.createShootingStars();
+    },
+
+    createStarfield() {
+        // Starfield is now handled by CSS on body::after
+        // This function can be used for additional dynamic stars if needed
+    },
+
+    createShootingStars() {
+        const createShootingStar = () => {
+            const star = document.createElement('div');
+            star.className = 'shooting-star';
+            star.style.top = Math.random() * 50 + '%';
+            star.style.left = '0';
+            star.style.animationDuration = (Math.random() * 2 + 2) + 's';
+            star.style.animationDelay = Math.random() * 2 + 's';
+            document.body.appendChild(star);
+
+            setTimeout(() => {
+                star.remove();
+            }, 4000);
+        };
+
+        // Create shooting stars periodically
+        setInterval(() => {
+            if (Math.random() > 0.7) {
+                createShootingStar();
+            }
+        }, 3000);
+    }
+};
+
+// ==========================================================================
 // Initialize All Systems
 // ==========================================================================
 
 document.addEventListener('DOMContentLoaded', () => {
+    // Initialize starfield
+    StarfieldSystem.init();
+
     // Initialize ticket system
     if (document.getElementById('ticket-tiers-display')) {
         TicketSystem.init();
