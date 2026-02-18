@@ -120,6 +120,10 @@ document.addEventListener('DOMContentLoaded', () => {
     initPreorderWindow();
     updateTicketPricesDisplay();
     setInterval(updateTicketPricesDisplay, 30000);
+    // Initialize video play overlays (mobile-friendly play buttons)
+    if (typeof initVideoPlayOverlays === 'function') {
+        initVideoPlayOverlays();
+    }
 });
 
 function initPreorderWindow() {
@@ -894,6 +898,42 @@ function createShootingStars(count = 6) {
         container.appendChild(el);
         setTimeout(() => { try { container.removeChild(el); } catch (e) {} }, 9000);
     }, 3000 + Math.random() * 3000);
+}
+
+// Video play overlay handling for mobile / autoplay-blocking browsers
+function initVideoPlayOverlays() {
+    const video = document.getElementById('community-video1');
+    const overlay = document.getElementById('video1-overlay');
+    if (!video || !overlay) return;
+
+    // If video can autoplay muted, attempt to play and hide overlay
+    video.play().then(() => {
+        // autoplay worked — hide overlay
+        overlay.style.display = 'none';
+    }).catch(() => {
+        // autoplay blocked — show overlay until user taps
+        overlay.style.display = '';
+    });
+
+    function togglePlay() {
+        if (video.paused) {
+            video.play().catch(() => {});
+            overlay.style.display = 'none';
+        } else {
+            video.pause();
+            overlay.style.display = '';
+        }
+    }
+
+    overlay.addEventListener('click', (e) => {
+        e.preventDefault();
+        togglePlay();
+    });
+
+    // allow clicking the video area to pause/play on larger screens
+    video.addEventListener('click', () => {
+        if (window.innerWidth >= 768) togglePlay();
+    });
 }
 
 // ==========================================================================

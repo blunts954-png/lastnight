@@ -1,3 +1,29 @@
+# LAST NIGHT — Static Site
+
+This repository contains the `LAST NIGHT` static site (HTML/CSS/JS) with a neon starfield theme, splash intro, and ticketing demo logic.
+
+Local preview
+
+1. From the project root run a simple static server (Python 3):
+
+```bash
+python -m http.server 8000
+
+# then open http://localhost:8000 in your browser
+```
+
+Notes before publishing
+- Media files (MOVs, large images) are located in `assets/` and may be large — pushing to GitHub will upload them as-is.
+- For production payments, wire `TicketSystem.API_URL` to your backend and configure Stripe keys securely.
+
+To publish on GitHub Pages
+
+1. Create a repository on GitHub and push this project (or use `gh repo create ... --push`).
+2. In the repository Settings → Pages, enable Pages from branch `main` and folder `/ (root)`.
+
+Contact
+
+If you want me to finish the GitHub push and Pages setup here, authenticate `gh` in this environment and tell me the desired repo name.
 # LAST NIGHT - The Controlled Aftermath
 
 A premium streetwear landing page designed for psychological conversion and brand exclusivity.
