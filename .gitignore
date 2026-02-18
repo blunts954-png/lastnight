@@ -3,4 +3,8 @@ node_modules/
 .env
 *.log
 .vscode/
-Thumbs.dbassets/*.MOV
+Thumbs.db
+assets/*.MOV
+assets/*.mp4
+*.png
+screenshots/

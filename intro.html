@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LAST NIGHT | ENTER</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #000;
+            overflow: hidden;
+            height: 100vh;
+            width: 100vw;
+        }
+
+        .intro-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #000;
+            z-index: 9999;
+        }
+
+        .intro-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 1s ease;
+        }
+
+        .intro-video.loaded {
+            opacity: 1;
+        }
+
+        .skip-btn {
+            position: absolute;
+            bottom: 40px;
+            right: 40px;
+            padding: 15px 30px;
+            background: transparent;
+            border: 1px solid var(--neon-purple, #B829FF);
+            color: var(--neon-purple, #B829FF);
+            font-family: 'Space Mono', monospace;
+            font-size: 0.8rem;
+            letter-spacing: 0.2em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 10;
+            text-transform: uppercase;
+            box-shadow: 0 0 20px rgba(184, 41, 255, 0.3);
+        }
+
+        .skip-btn:hover {
+            background: rgba(184, 41, 255, 0.2);
+            box-shadow: 0 0 30px rgba(184, 41, 255, 0.5);
+        }
+
+        .enter-btn {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 20px 50px;
+            background: transparent;
+            border: 2px solid var(--electric-blue, #00D4FF);
+            color: var(--electric-blue, #00D4FF);
+            font-family: 'Space Mono', monospace;
+            font-size: 1rem;
+            font-weight: 700;
+            letter-spacing: 0.3em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 10;
+            text-transform: uppercase;
+            opacity: 0;
+            pointer-events: none;
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.3);
+            text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+        }
+
+        .enter-btn.visible {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .enter-btn:hover {
+            background: rgba(0, 212, 255, 0.2);
+            box-shadow: 0 0 50px rgba(0, 212, 255, 0.6);
+        }
+
+        .video-fallback {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: radial-gradient(ellipse at center, #1a0a2e 0%, #000 100%);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .video-fallback.show {
+            opacity: 1;
+        }
+
+        .fallback-text {
+            font-family: 'Space Mono', monospace;
+            font-size: 2rem;
+            color: var(--neon-purple, #B829FF);
+            text-align: center;
+            animation: pulse 2s ease-in-out infinite;
+            text-shadow: 0 0 20px rgba(184, 41, 255, 0.5);
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+
+        /* Mobile adjustments */
+        @media (max-width: 768px) {
+            .skip-btn {
+                bottom: 20px;
+                right: 20px;
+                padding: 12px 20px;
+                font-size: 0.7rem;
+            }
+
+            .enter-btn {
+                bottom: 80px;
+                padding: 15px 35px;
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="intro-container">
+        <video class="intro-video" id="introVideo" autoplay muted playsinline>
+            <source src="assets/video2.mp4" type="video/mp4">
+            <source src="assets/video2.mov" type="video/quicktime">
+            <source src="assets/video2.webm" type="video/webm">
+            <source src="assets/video1.MOV" type="video/quicktime">
+        </video>
+
+        <div class="video-fallback" id="videoFallback">
+            <div class="fallback-text">
+                LAST NIGHT<br>
+                <span style="font-size: 1rem; color: var(--electric-blue, #00D4FF);">CLICK TO ENTER</span>
+            </div>
+        </div>
+
+        <button class="skip-btn" id="skipBtn">Skip</button>
+        <button class="enter-btn" id="enterBtn">Enter Experience</button>
+    </div>
+
+    <script>
+        const video = document.getElementById('introVideo');
+        const skipBtn = document.getElementById('skipBtn');
+        const enterBtn = document.getElementById('enterBtn');
+        const fallback = document.getElementById('videoFallback');
+
+        // Check if video loaded
+        video.addEventListener('loadeddata', () => {
+            video.classList.add('loaded');
+        });
+
+        // Show video fallback if video fails to load
+        video.addEventListener('error', () => {
+            fallback.classList.add('show');
+            skipBtn.style.display = 'none';
+            enterBtn.classList.add('visible');
+        });
+
+        // When video ends, show enter button
+        video.addEventListener('ended', () => {
+            skipBtn.style.display = 'none';
+            enterBtn.classList.add('visible');
+        });
+
+        // Skip button
+        skipBtn.addEventListener('click', () => {
+            window.location.href = 'index.html';
+        });
+
+        // Enter button
+        enterBtn.addEventListener('click', () => {
+            // Add fade out effect
+            document.body.style.transition = 'opacity 0.5s ease';
+            document.body.style.opacity = '0';
+            setTimeout(() => {
+                window.location.href = 'index.html';
+            }, 500);
+        });
+
+        // Fallback click
+        fallback.addEventListener('click', () => {
+            window.location.href = 'index.html';
+        });
+
+        // Auto redirect after 15 seconds if nothing happens
+        setTimeout(() => {
+            if (!enterBtn.classList.contains('visible')) {
+                window.location.href = 'index.html';
+            }
+        }, 15000);
+    </script>
+</body>
+</html>
