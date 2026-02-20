@@ -1,23 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="LAST NIGHT - Bakersfield's most exclusive nightlife experience. Totally Private. Totally Unreal. The Central Valley's premier party by @party_boy_jay.">
+    <meta name="description"
+        content="LAST NIGHT - Bakersfield's most exclusive nightlife experience. Totally Private. Totally Unreal. The Central Valley's premier party by @party_boy_jay.">
+    <!-- Advanced SEO, GEO & AEO Meta Tags -->
+    <meta name="keywords"
+        content="Bakersfield nightlife, exclusive party, Central Valley events, totally private totally unreal, JJ party architect, VIP nightlife">
+    <meta name="author" content="JJ - @party_boy_jay">
+    <!-- Open Graph for Social Sharing & GEO context -->
+    <meta property="og:title" content="LAST NIGHT | Totally Private. Totally Unreal. | Bakersfield">
+    <meta property="og:description"
+        content="The Central Valley's premier nightlife experience. By invitation. By reputation. Bakersfield's most exclusive party.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://lastnightbakersfield.com/">
+    <meta property="og:image"
+        content="https://lastnightbakersfield.com/assets/146DCE7A-FE8C-4EED-9EBE-43E4173B2B38.jpeg">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="LAST NIGHT | Totally Private. Totally Unreal.">
+    <meta name="twitter:description" content="Bakersfield's most exclusive nightlife experience.">
+    <meta name="twitter:image"
+        content="https://lastnightbakersfield.com/assets/146DCE7A-FE8C-4EED-9EBE-43E4173B2B38.jpeg">
     <meta name="theme-color" content="#000000">
-    
+    <!-- JSON-LD Schema for AEO/GEO (Answer Engine Optimization & Generative Engine Optimization) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Event",
+      "name": "LAST NIGHT: THE CONTROLLED AFTERMATH",
+      "description": "LAST NIGHT is Bakersfield's most exclusive, invite-only nightlife experience. Often described as a cultural moment, it combines premium production, curated guest lists, and raw energy. The premier Central Valley party created by JJ.",
+      "startDate": "2026-03-15T22:00:00-08:00",
+      "endDate": "2026-03-16T04:00:00-08:00",
+      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "location": {
+        "@type": "Place",
+        "name": "The Warehouse LA",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Bakersfield",
+          "addressRegion": "CA",
+          "addressCountry": "US"
+        }
+      },
+      "image": [
+        "https://lastnightbakersfield.com/assets/146DCE7A-FE8C-4EED-9EBE-43E4173B2B38.jpeg"
+      ],
+      "organizer": {
+        "@type": "Person",
+        "name": "JJ",
+        "url": "https://lastnightbakersfield.com/jj-bio.html"
+      },
+      "offers": {
+        "@type": "Offer",
+        "url": "https://lastnightbakersfield.com/#tickets",
+        "price": "10.00",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock",
+        "validFrom": "2026-02-20T00:00:00-08:00"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{
+        "@type": "Question",
+        "name": "What is LAST NIGHT in Bakersfield?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "LAST NIGHT is Bakersfield's premier and most exclusive nightlife experience. Curated by the architect JJ, it features premium production, vetted guest lists, and a Totally Private, Totally Unreal atmosphere."
+        }
+      }, {
+        "@type": "Question",
+        "name": "How can I get tickets to LAST NIGHT?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Tickets are highly exclusive and available only through secure drops on the website. Joining the VIP Blacklist grants early SMS access to tickets before they are released to the public."
+        }
+      }, {
+        "@type": "Question",
+        "name": "Where is the next LAST NIGHT event located?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The next LAST NIGHT event, 'The Controlled Aftermath', will be held at The Warehouse LA. Specific details are revealed only to ticket holders."
+        }
+      }]
+    }
+    </script>
+
     <!-- Preload Critical Assets -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
     <title>LAST NIGHT | TOTALLY PRIVATE. TOTALLY UNREAL. | BAKERSFIELD</title>
-    
+
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
+    <!-- 3D Antigravity Background -->
+    <div id="canvas-container"
+        style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 0; pointer-events: none;"></div>
+
     <!-- Loader -->
     <div class="loader" id="loader">
         <div class="loader-content">
@@ -32,7 +127,8 @@
 
     <!-- Splash overlay: plays intro video before revealing site -->
     <div id="splash-overlay" class="splash-overlay" aria-hidden="false">
-        <video id="splash-video" class="splash-video" autoplay muted playsinline preload="auto" poster="assets/146DCE7A-FE8C-4EED-9EBE-43E4173B2B38.jpeg">
+        <video id="splash-video" class="splash-video" autoplay muted playsinline preload="auto"
+            poster="assets/146DCE7A-FE8C-4EED-9EBE-43E4173B2B38.jpeg">
             <source src="assets/IMG_7024.MOV" type="video/quicktime">
             <source src="assets/IMG_7024.MOV" type="video/mp4">
         </video>
@@ -87,14 +183,15 @@
                 <!-- Fallback: Instagram Reel/Video URL can be used here -->
             </video>
             <!-- Front page secondary video (video1) - wired to existing asset `video1.MOV` -->
-            <video id="front-video" class="front-video" preload="metadata" playsinline muted controls style="display:none;" poster="assets/IMG_0631.png">
+            <video id="front-video" class="front-video" preload="metadata" playsinline muted controls
+                style="display:none;" poster="assets/IMG_0631.png">
                 <source src="assets/video1.MOV" type="video/quicktime">
                 <source src="assets/video1.MOV" type="video/mp4">
             </video>
             <div class="hero-video-overlay"></div>
             <div class="hero-grain"></div>
         </div>
-        
+
         <div class="hero-content">
             <!-- Brand image shown on front page (using existing asset) -->
             <img src="assets/146DCE7A-FE8C-4EED-9EBE-43E4173B2B38.jpeg" alt="Brand" class="hero-brand-image" />
@@ -102,14 +199,15 @@
                 <span class="badge-dot"></span>
                 <span>BAKERSFIELD'S MOST EXCLUSIVE</span>
             </div>
-            
+
             <h1 class="hero-title">
                 <span class="title-line">TOTALLY PRIVATE.</span>
                 <span class="title-line title-line-accent">TOTALLY UNREAL.</span>
             </h1>
-            
-            <p class="hero-subtitle">The Central Valley's premier nightlife experience. By invitation. By reputation.</p>
-            
+
+            <p class="hero-subtitle">The Central Valley's premier nightlife experience. By invitation. By reputation.
+            </p>
+
             <!-- Countdown Timer -->
             <div class="countdown" id="countdown">
                 <div class="countdown-label">NEXT EVENT STARTS IN</div>
@@ -130,15 +228,15 @@
                     </div>
                 </div>
             </div>
-            
+
             <a href="#tickets" class="hero-cta">
                 <span>SECURE YOUR SPOT</span>
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M12 5v14M19 12l-7 7-7-7"/>
+                    <path d="M12 5v14M19 12l-7 7-7-7" />
                 </svg>
             </a>
         </div>
-        
+
         <div class="hero-scroll-indicator">
             <span>SCROLL</span>
             <div class="scroll-line"></div>
@@ -175,20 +273,22 @@
                     <span class="label-number">001</span>
                     <span class="label-text">THE EXPERIENCE</span>
                 </div>
-                <h2 class="experience-title">Not Just a Party.<br><span class="accent-text">A Cultural Moment.</span></h2>
+                <h2 class="experience-title">Not Just a Party.<br><span class="accent-text">A Cultural Moment.</span>
+                </h2>
             </div>
 
             <div class="experience-grid">
                 <div class="experience-main">
                     <p class="experience-intro">
-                        LAST NIGHT isn't just another event—it's the culmination of decades of Central Valley nightlife 
-                        evolution. Founded by <a href="jj-bio.html">JJ</a>, the region's most sought-after experience architect, 
+                        LAST NIGHT isn't just another event—it's the culmination of decades of Central Valley nightlife
+                        evolution. Founded by <a href="jj-bio.html">JJ</a>, the region's most sought-after experience
+                        architect,
                         each event is a carefully orchestrated masterpiece of sound, atmosphere, and exclusivity.
                     </p>
                     <p class="experience-text">
-                        From the historic chitlin' parties and fish fries that defined Bakersfield's social fabric 
-                        to the modern underground scene, we carry forward a legacy of bringing people together. 
-                        But this isn't your average club night. This is "Totally Private, Totally Unreal"—where 
+                        From the historic chitlin' parties and fish fries that defined Bakersfield's social fabric
+                        to the modern underground scene, we carry forward a legacy of bringing people together.
+                        But this isn't your average club night. This is "Totally Private, Totally Unreal"—where
                         the energy is raw, the crowd is curated, and the moments become stories worth telling.
                     </p>
                 </div>
@@ -196,38 +296,44 @@
                 <div class="experience-features">
                     <div class="experience-feature">
                         <div class="feature-icon">
-                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5">
+                                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
                             </svg>
                         </div>
                         <div class="feature-content">
                             <h3>Curated Exclusivity</h3>
-                            <p>Limited capacity. Vetted guest lists. Every attendee adds to the energy—no exceptions.</p>
+                            <p>Limited capacity. Vetted guest lists. Every attendee adds to the energy—no exceptions.
+                            </p>
                         </div>
                     </div>
                     <div class="experience-feature">
                         <div class="feature-icon">
-                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                <circle cx="12" cy="12" r="10"/>
-                                <path d="M12 6v6l4 2"/>
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5">
+                                <circle cx="12" cy="12" r="10" />
+                                <path d="M12 6v6l4 2" />
                             </svg>
                         </div>
                         <div class="feature-content">
                             <h3>Premium Production</h3>
-                            <p>World-class sound systems, immersive lighting, and venue transformations that defy expectations.</p>
+                            <p>World-class sound systems, immersive lighting, and venue transformations that defy
+                                expectations.</p>
                         </div>
                     </div>
                     <div class="experience-feature">
                         <div class="feature-icon">
-                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-                                <circle cx="9" cy="7" r="4"/>
-                                <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                                <circle cx="9" cy="7" r="4" />
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
                             </svg>
                         </div>
                         <div class="feature-content">
                             <h3>The Unity Model</h3>
-                            <p>You're not just a ticket holder—you're part of an exclusive community with early access and VIP benefits.</p>
+                            <p>You're not just a ticket holder—you're part of an exclusive community with early access
+                                and VIP benefits.</p>
                         </div>
                     </div>
                 </div>
@@ -363,7 +469,7 @@
                 <div class="mystery-info">
                     <h3 class="mystery-title">THE UNKNOWN BUNDLE</h3>
                     <p class="mystery-description">
-                        3 unreleased pieces + exclusive accessories. 
+                        3 unreleased pieces + exclusive accessories.
                         Contents revealed upon delivery. No refunds. No regrets.
                     </p>
                     <ul class="mystery-includes">
@@ -413,16 +519,18 @@
                     <h3 class="event-name" id="event-name-display">LAST NIGHT: THE CONTROLLED AFTERMATH</h3>
                     <div class="event-info">
                         <div class="event-info-item">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <circle cx="12" cy="12" r="10"/>
-                                <path d="M12 6v6l4 2"/>
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <circle cx="12" cy="12" r="10" />
+                                <path d="M12 6v6l4 2" />
                             </svg>
                             <span id="event-time-display">10:00 PM - 4:00 AM</span>
                         </div>
                         <div class="event-info-item">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1 1 18 0z"/>
-                                <circle cx="12" cy="10" r="3"/>
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1 1 18 0z" />
+                                <circle cx="12" cy="10" r="3" />
                             </svg>
                             <span id="event-venue-display">The Warehouse LA</span>
                         </div>
@@ -451,8 +559,9 @@
                     </ul>
                     <button class="tier-buy-btn" data-tier="ga">
                         <span>PRE-ORDER</span>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7" />
                         </svg>
                     </button>
                 </div>
@@ -477,8 +586,9 @@
                     </ul>
                     <button class="tier-buy-btn" data-tier="vip">
                         <span>BUY NOW</span>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7" />
                         </svg>
                     </button>
                 </div>
@@ -504,8 +614,9 @@
                     </ul>
                     <button class="tier-buy-btn" data-tier="table">
                         <span>BUY VIP</span>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7" />
                         </svg>
                     </button>
                 </div>
@@ -539,7 +650,7 @@
             <button class="load-more-btn" id="load-more-merch">
                 <span>LOAD MORE</span>
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M12 5v14M5 12l7 7 7-7"/>
+                    <path d="M12 5v14M5 12l7 7 7-7" />
                 </svg>
             </button>
         </div>
@@ -557,33 +668,35 @@
         </div>
 
         <div class="community-grid">
-                <!-- Added featured asset image from assets folder -->
-                <div class="community-item community-item-featured">
-                    <div class="community-image" style="background-image: url('assets/146DCE7A-FE8C-4EED-9EBE-43E4173B2B38.jpeg');"></div>
-                    <div class="community-overlay">
-                        <span class="community-tag">AFTERMATH</span>
-                        <span class="community-location">FEATURED SHOT</span>
-                    </div>
-                    <div class="community-cctv">REC ●</div>
+            <!-- Added featured asset image from assets folder -->
+            <div class="community-item community-item-featured">
+                <div class="community-image"
+                    style="background-image: url('assets/146DCE7A-FE8C-4EED-9EBE-43E4173B2B38.jpeg');"></div>
+                <div class="community-overlay">
+                    <span class="community-tag">AFTERMATH</span>
+                    <span class="community-location">FEATURED SHOT</span>
                 </div>
+                <div class="community-cctv">REC ●</div>
+            </div>
 
-                <!-- Added video1 as a gallery tile (plays inline, muted) -->
-                <div class="community-item">
-                    <div class="community-video-wrap" style="position:relative;">
-                        <video id="community-video1" class="community-video" playsinline muted loop preload="metadata" poster="assets/IMG_0631.png">
-                            <source src="assets/video1.MOV" type="video/quicktime">
-                            <source src="assets/video1.MOV" type="video/mp4">
-                        </video>
-                        <div class="video-play-overlay" id="video1-overlay" role="button" aria-label="Play video">
-                            <div class="play-btn" aria-hidden="true"></div>
-                        </div>
+            <!-- Added video1 as a gallery tile (plays inline, muted) -->
+            <div class="community-item">
+                <div class="community-video-wrap" style="position:relative;">
+                    <video id="community-video1" class="community-video" playsinline muted loop preload="metadata"
+                        poster="assets/IMG_0631.png">
+                        <source src="assets/video1.MOV" type="video/quicktime">
+                        <source src="assets/video1.MOV" type="video/mp4">
+                    </video>
+                    <div class="video-play-overlay" id="video1-overlay" role="button" aria-label="Play video">
+                        <div class="play-btn" aria-hidden="true"></div>
                     </div>
-                    <div class="community-overlay">
-                        <span class="community-tag">LIVE •</span>
-                        <span class="community-location">STUDIO CLIP</span>
-                    </div>
-                    <div class="community-cctv">REC ●</div>
                 </div>
+                <div class="community-overlay">
+                    <span class="community-tag">LIVE •</span>
+                    <span class="community-location">STUDIO CLIP</span>
+                </div>
+                <div class="community-cctv">REC ●</div>
+            </div>
             <div class="community-item community-item-tall">
                 <div class="community-image" style="background-image: url('assets/event-1.jpg');"></div>
                 <div class="community-overlay">
@@ -672,13 +785,14 @@
                 </div>
                 <h2 class="blacklist-title">JOIN THE VIP LIST</h2>
                 <p class="blacklist-description">
-                    Get priority access codes via SMS 15 minutes before public releases. 
+                    Get priority access codes via SMS 15 minutes before public releases.
                     Early ticket drops. Exclusive merch. Members-only events. This is the inner circle.
                 </p>
-                
+
                 <form class="blacklist-form" id="blacklist-form" data-sms-service="twilio">
                     <div class="form-group">
-                        <input type="tel" id="phone" name="phone" placeholder="+1 (555) 000-0000" required pattern="[\d\s\-\(\)\+]{10,}">
+                        <input type="tel" id="phone" name="phone" placeholder="+1 (555) 000-0000" required
+                            pattern="[\d\s\-\(\)\+]{10,}">
                         <label for="phone">PHONE NUMBER</label>
                     </div>
                     <div class="form-group">
@@ -692,24 +806,25 @@
                         <span class="btn-text">GET ON THE LIST</span>
                         <span class="btn-loading">
                             <svg class="spinner" viewBox="0 0 24 24">
-                                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="3" fill="none" stroke-dasharray="60" stroke-dashoffset="20"/>
+                                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="3" fill="none"
+                                    stroke-dasharray="60" stroke-dashoffset="20" />
                             </svg>
                         </span>
                     </button>
                 </form>
-                
+
                 <div class="blacklist-success" id="blacklist-success">
                     <div class="success-icon">✓</div>
                     <h3>YOU'RE IN.</h3>
                     <p>Watch your phone. The next drop is closer than you think.</p>
                 </div>
-                
+
                 <p class="blacklist-note">
                     <span class="note-icon">🔒</span>
                     Your info stays with us. We don't sell data. Ever.
                 </p>
             </div>
-            
+
             <div class="blacklist-visual">
                 <div class="blacklist-card">
                     <div class="card-header">
@@ -767,20 +882,23 @@
                 </div>
                 <div class="footer-social">
                     <a href="#" class="social-link" aria-label="Instagram">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <rect x="2" y="2" width="20" height="20" rx="5"/>
-                            <circle cx="12" cy="12" r="4"/>
-                            <circle cx="18" cy="6" r="1.5" fill="currentColor"/>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <rect x="2" y="2" width="20" height="20" rx="5" />
+                            <circle cx="12" cy="12" r="4" />
+                            <circle cx="18" cy="6" r="1.5" fill="currentColor" />
                         </svg>
                     </a>
                     <a href="#" class="social-link" aria-label="Twitter">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M4 4l11.733 16h4.267l-11.733-16zM4 20l6.4-8M20 4l-6.4 8"/>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M4 4l11.733 16h4.267l-11.733-16zM4 20l6.4-8M20 4l-6.4 8" />
                         </svg>
                     </a>
                     <a href="#" class="social-link" aria-label="TikTok">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" />
                         </svg>
                     </a>
                 </div>
@@ -801,7 +919,7 @@
         <div class="modal-content">
             <button class="modal-close" aria-label="Close">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M18 6L6 18M6 6l12 12"/>
+                    <path d="M18 6L6 18M6 6l12 12" />
                 </svg>
             </button>
             <div class="modal-body">
@@ -813,7 +931,7 @@
                     <h2 class="modal-title" id="modal-title"></h2>
                     <p class="modal-description" id="modal-description"></p>
                     <div class="modal-price" id="modal-price"></div>
-                    
+
                     <div class="modal-options">
                         <div class="option-group">
                             <label>SIZE</label>
@@ -826,11 +944,11 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <button class="modal-add-btn">
                         ADD TO CART — <span id="modal-btn-price"></span>
                     </button>
-                    
+
                     <div class="modal-details">
                         <div class="detail-item">
                             <span class="detail-icon">📦</span>
@@ -852,7 +970,7 @@
             <h3>YOUR CART</h3>
             <button class="cart-close" id="cart-close">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M18 6L6 18M6 6l12 12"/>
+                    <path d="M18 6L6 18M6 6l12 12" />
                 </svg>
             </button>
         </div>
@@ -877,9 +995,9 @@
     <!-- Cart Toggle Button -->
     <button class="cart-toggle" id="cart-toggle">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M6 6h15l-1.5 9h-12z"/>
-            <circle cx="9" cy="20" r="1"/>
-            <circle cx="18" cy="20" r="1"/>
+            <path d="M6 6h15l-1.5 9h-12z" />
+            <circle cx="9" cy="20" r="1" />
+            <circle cx="18" cy="20" r="1" />
         </svg>
         <span class="cart-count" id="cart-count">0</span>
     </button>
@@ -896,14 +1014,15 @@
         <div class="modal-content checkout-content">
             <button class="modal-close" id="close-ticket-modal" aria-label="Close">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M18 6L6 18M6 6l12 12"/>
+                    <path d="M18 6L6 18M6 6l12 12" />
                 </svg>
             </button>
             <div class="checkout-body">
                 <div class="checkout-header">
                     <h2>SECURE CHECKOUT</h2>
                     <div class="checkout-event-info">
-                        <span class="checkout-event-name" id="checkout-event-name">LAST NIGHT: THE CONTROLLED AFTERMATH</span>
+                        <span class="checkout-event-name" id="checkout-event-name">LAST NIGHT: THE CONTROLLED
+                            AFTERMATH</span>
                         <span class="checkout-ticket-type" id="checkout-ticket-type">VIP ACCESS</span>
                     </div>
                 </div>
@@ -968,7 +1087,8 @@
                         <span class="btn-text">COMPLETE PURCHASE</span>
                         <span class="btn-loading">
                             <svg class="spinner" viewBox="0 0 24 24">
-                                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="3" fill="none" stroke-dasharray="60" stroke-dashoffset="20"/>
+                                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="3" fill="none"
+                                    stroke-dasharray="60" stroke-dashoffset="20" />
                             </svg>
                         </span>
                     </button>
@@ -985,8 +1105,8 @@
 
                 <div class="checkout-secure-note">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <rect x="3" y="11" width="18" height="11" rx="2"/>
-                        <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                        <rect x="3" y="11" width="18" height="11" rx="2" />
+                        <path d="M7 11V7a5 5 0 0 1 10 0v4" />
                     </svg>
                     <span>Secured by Stripe. Your payment info is encrypted.</span>
                 </div>
@@ -1000,7 +1120,7 @@
         <div class="modal-content checkout-content">
             <button class="modal-close" id="close-merch-modal" aria-label="Close">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M18 6L6 18M6 6l12 12"/>
+                    <path d="M18 6L6 18M6 6l12 12" />
                 </svg>
             </button>
             <div class="checkout-body">
@@ -1074,7 +1194,8 @@
                         <span class="btn-text">PLACE ORDER</span>
                         <span class="btn-loading">
                             <svg class="spinner" viewBox="0 0 24 24">
-                                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="3" fill="none" stroke-dasharray="60" stroke-dashoffset="20"/>
+                                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="3" fill="none"
+                                    stroke-dasharray="60" stroke-dashoffset="20" />
                             </svg>
                         </span>
                     </button>
@@ -1115,11 +1236,13 @@
                 <div class="gallery-overlay"></div>
             </div>
             <div class="gallery-item gallery-item-5">
-                <img src="assets/1DD98BB6-A6D0-4B8E-8B25-2BBE6A40E456.jpeg" alt="Last Night Event Photo 5" loading="lazy">
+                <img src="assets/1DD98BB6-A6D0-4B8E-8B25-2BBE6A40E456.jpeg" alt="Last Night Event Photo 5"
+                    loading="lazy">
                 <div class="gallery-overlay"></div>
             </div>
             <div class="gallery-item gallery-item-6">
-                <img src="assets/146DCE7A-FE8C-4EED-9EBE-43E4173B2B38.jpeg" alt="Last Night Event Photo 6" loading="lazy">
+                <img src="assets/146DCE7A-FE8C-4EED-9EBE-43E4173B2B38.jpeg" alt="Last Night Event Photo 6"
+                    loading="lazy">
                 <div class="gallery-overlay"></div>
             </div>
             <div class="gallery-item gallery-item-7">
@@ -1134,5 +1257,60 @@
     <!-- QR Code Generator -->
     <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
     <script src="script.js"></script>
+
+    <!-- Three.js Interactive Antigravity Logic -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script>
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.getElementById('canvas-container').appendChild(renderer.domElement);
+
+        // Create background objects (e.g., floating spheres or icons)
+        const geometry = new THREE.IcosahedronGeometry(1, 1);
+        const material = new THREE.MeshNormalMaterial();
+        const shapes = [];
+
+        for (let i = 0; i < 50; i++) {
+            const mesh = new THREE.Mesh(geometry, material);
+            mesh.position.set((Math.random() - 0.5) * 20, (Math.random() - 0.5) * 20, (Math.random() - 0.5) * 20);
+            scene.add(mesh);
+            shapes.push(mesh);
+        }
+
+        camera.position.z = 10;
+
+        // Mouse Tracking
+        const mouse = new THREE.Vector2();
+        window.addEventListener('mousemove', (event) => {
+            // Normalize mouse coordinates to -1 to +1 (Required for Raycasting)
+            mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+            mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+        });
+
+        // Add resize listener to prevent stretching
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+
+        function animate() {
+            requestAnimationFrame(animate);
+
+            // Subtle "float" movement
+            shapes.forEach((shape, i) => {
+                shape.rotation.x += 0.01;
+                // This is the "Antigravity" effect: move shapes toward/away from mouse
+                shape.position.x += (mouse.x * 2 - shape.position.x) * 0.02;
+                shape.position.y += (mouse.y * 2 - shape.position.y) * 0.02;
+            });
+
+            renderer.render(scene, camera);
+        }
+        animate();
+    </script>
 </body>
+
 </html>
