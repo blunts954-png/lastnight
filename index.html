@@ -1267,14 +1267,21 @@
         renderer.setSize(window.innerWidth, window.innerHeight);
         document.getElementById('canvas-container').appendChild(renderer.domElement);
 
-        // Create background objects (e.g., floating spheres or icons)
-        const geometry = new THREE.IcosahedronGeometry(1, 1);
-        const material = new THREE.MeshNormalMaterial();
+        // Create background objects (small glowing dots)
+        const geometry = new THREE.SphereGeometry(0.04, 8, 8);
+        const materialBlue = new THREE.MeshBasicMaterial({ color: 0x00D4FF, transparent: true, opacity: 0.8 });
+        const materialPurple = new THREE.MeshBasicMaterial({ color: 0xB829FF, transparent: true, opacity: 0.8 });
         const shapes = [];
 
-        for (let i = 0; i < 50; i++) {
-            const mesh = new THREE.Mesh(geometry, material);
-            mesh.position.set((Math.random() - 0.5) * 20, (Math.random() - 0.5) * 20, (Math.random() - 0.5) * 20);
+        for (let i = 0; i < 150; i++) {
+            const mesh = new THREE.Mesh(geometry, i % 2 === 0 ? materialBlue : materialPurple);
+            // Store base positions to prevent clumping
+            mesh.userData.baseX = (Math.random() - 0.5) * 40;
+            mesh.userData.baseY = (Math.random() - 0.5) * 40;
+            mesh.userData.baseZ = (Math.random() - 0.5) * 20 - 5;
+            mesh.userData.speed = Math.random() * 0.02 + 0.01;
+
+            mesh.position.set(mesh.userData.baseX, mesh.userData.baseY, mesh.userData.baseZ);
             scene.add(mesh);
             shapes.push(mesh);
         }
@@ -1284,7 +1291,6 @@
         // Mouse Tracking
         const mouse = new THREE.Vector2();
         window.addEventListener('mousemove', (event) => {
-            // Normalize mouse coordinates to -1 to +1 (Required for Raycasting)
             mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
             mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
         });
@@ -1298,13 +1304,21 @@
 
         function animate() {
             requestAnimationFrame(animate);
+            const time = Date.now() * 0.001;
 
-            // Subtle "float" movement
             shapes.forEach((shape, i) => {
-                shape.rotation.x += 0.01;
-                // This is the "Antigravity" effect: move shapes toward/away from mouse
-                shape.position.x += (mouse.x * 2 - shape.position.x) * 0.02;
-                shape.position.y += (mouse.y * 2 - shape.position.y) * 0.02;
+                // Subtle floating wave effect
+                const waveX = Math.sin(time * shape.userData.speed + i) * 1.5;
+                const waveY = Math.cos(time * shape.userData.speed + i) * 1.5;
+
+                // Advanced "Antigravity" effect: Shift relative to their base position based on mouse
+                const zFactor = (shape.position.z + 15) / 10;
+                const targetX = shape.userData.baseX + waveX + (mouse.x * 2.5 * zFactor);
+                const targetY = shape.userData.baseY + waveY + (mouse.y * 2.5 * zFactor);
+
+                // Smoothly interpolate towards target
+                shape.position.x += (targetX - shape.position.x) * 0.05;
+                shape.position.y += (targetY - shape.position.y) * 0.05;
             });
 
             renderer.render(scene, camera);
