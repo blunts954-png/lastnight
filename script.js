@@ -855,6 +855,20 @@ function initSplash() {
         endSplash();
     });
 
+    // if video fails to load (missing file, unsupported format), close immediately
+    video.addEventListener('error', () => {
+        clearTimeout(autoClose);
+        endSplash();
+    });
+
+    // also close if all sources fail
+    video.querySelectorAll('source').forEach(src => {
+        src.addEventListener('error', () => {
+            clearTimeout(autoClose);
+            endSplash();
+        });
+    });
+
     // Skip button
     if (skip) {
         skip.addEventListener('click', () => {
@@ -864,7 +878,7 @@ function initSplash() {
     }
 
     // try to play (some browsers block autoplay with sound; video is muted so should play)
-    video.play().catch(() => {});
+    video.play().catch(() => { endSplash(); });
 }
 
 function createShootingStars(count = 6) {
