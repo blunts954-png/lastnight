@@ -959,9 +959,9 @@ const TicketSystem = {
     // vip: General admission (normal)
     // table: VIP ticket with perks
     TIERS: {
-        ga: { name: 'PRE-ORDER (FIRST HOUR)', price: 5, fee: 0, limit: 200, description: 'First hour pre-order — limited to 200' },
-        vip: { name: 'GENERAL ADMISSION', price: 10, fee: 1, limit: 1000, description: 'Standard entry' },
-        table: { name: 'VIP TICKET', price: 30, fee: 2, limit: 50, perks: ['1 drink', 'On-stage with J.J'], description: 'Includes one drink and on-stage access with J.J.' }
+        ga: { name: 'PRE-ORDER (FIRST HOUR)', price: 10, fee: 0, limit: 200, description: 'First hour pre-order — limited to 200' },
+        vip: { name: 'GENERAL ADMISSION', price: 15, fee: 1, limit: 200, description: 'Standard entry' },
+        table: { name: 'VIP TICKET', price: 35, fee: 2, limit: 50, perks: ['1 drink', 'Parking included', 'On-stage with J.J'], description: 'Includes one drink, parking, and on-stage access with J.J.' }
     },
 
     init() {
